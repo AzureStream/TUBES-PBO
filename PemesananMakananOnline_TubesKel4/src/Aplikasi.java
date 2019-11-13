@@ -1,3 +1,6 @@
+
+import java.util.List;
+
 /**
  * -------------------------------- NOTE -------------------------------------
  * TUGAS BESAR PEMROGRAMAN BERORIENTASI OBJEK A 2019/2020
@@ -8,12 +11,15 @@
  * 3. RACHMAT DWI PUTRA (NIM 1301180201)
  * ---------------------------------------------------------------------------
  */
-public class Main {
-    public static void main(String[] args) {
-        //------------------------- your code here ---------------------------
+public class Aplikasi {
+    private List<Pelanggan> daftarPelanggan;
+    private List<Pengemudi> daftarPengemudi;
+    private List<Restoran> daftarRestoran;
     
-    
-    
-        //--------------------------------------------------------------------
+    public void addPengemudi(String platNomor, String nama){
+        Pengemudi p = new Pengemudi(platNomor, nama);
+        this.daftarPengemudi.add(p);
     }
+    
+    
 }

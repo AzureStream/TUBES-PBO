@@ -9,9 +9,12 @@
  * ---------------------------------------------------------------------------
  */
 public class Restoran {
-    //------------------------- your code here -------------------------------
+    private String namaRestoran;
+    private Menu[] daftarMenu;
+    private int numMenu = 0;
     
-    
-    
-    //------------------------------------------------------------------------
+    public void createMenu(String namaMenu, int hargaMenu){
+        this.daftarMenu[numMenu] = new Menu(namaMenu, hargaMenu);
+        numMenu++;
+    }
 }

@@ -1,3 +1,6 @@
+
+import java.util.List;
+
 /**
  * -------------------------------- NOTE -------------------------------------
  * TUGAS BESAR PEMROGRAMAN BERORIENTASI OBJEK A 2019/2020
@@ -9,9 +12,9 @@
  * ---------------------------------------------------------------------------
  */
 public class Pelanggan {
-    //------------------------- your code here -------------------------------
+    private List<Pesanan> pesanan;
     
-    
-    
-    //------------------------------------------------------------------------
+    public void createPesanan(Pesanan p){
+        this.pesanan.add(p);
+    }
 }

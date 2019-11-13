@@ -8,10 +8,14 @@
  * 3. RACHMAT DWI PUTRA (NIM 1301180201)
  * ---------------------------------------------------------------------------
  */
-public class Pengemudi {
-    //------------------------- your code here -------------------------------
+public class Pengemudi extends Orang {
+    private String platNomor;
+
+    public Pengemudi(String platNomor, String nama) {
+        super(nama);
+        this.platNomor = platNomor;
+    }
     
     
     
-    //------------------------------------------------------------------------
 }

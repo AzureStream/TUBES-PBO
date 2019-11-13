@@ -1,3 +1,6 @@
+
+import java.util.List;
+
 /**
  * -------------------------------- NOTE -------------------------------------
  * TUGAS BESAR PEMROGRAMAN BERORIENTASI OBJEK A 2019/2020
@@ -9,9 +12,20 @@
  * ---------------------------------------------------------------------------
  */
 public class Pesanan {
-    //------------------------- your code here -------------------------------
+    private Pengemudi driver;
+    private Restoran restoran;
+    private List<Menu> menuPesanan;
+    private String status;
+
+    public void addPengemudi(Pengemudi p){
+        this.driver = p;
+    }
     
+    public void addRestoran(Restoran r){
+        this.restoran = r;
+    }
     
-    
-    //------------------------------------------------------------------------
+    public void addMenu(Menu m){
+        this.menuPesanan.add(m);
+    }
 }
