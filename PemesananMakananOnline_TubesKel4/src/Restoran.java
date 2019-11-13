@@ -12,9 +12,33 @@ public class Restoran {
     private String namaRestoran;
     private Menu[] daftarMenu;
     private int numMenu = 0;
+
+    public Restoran(String namaRestoran) {
+        this.namaRestoran = namaRestoran;
+    }
     
     public void createMenu(String namaMenu, int hargaMenu){
         this.daftarMenu[numMenu] = new Menu(namaMenu, hargaMenu);
         numMenu++;
+    }
+
+    public String getNamaRestoran() {
+        return namaRestoran;
+    }
+
+    public void setNamaRestoran(String namaRestoran) {
+        this.namaRestoran = namaRestoran;
+    }
+
+    public Menu[] getDaftarMenu() {
+        return daftarMenu;
+    }
+    
+    public Menu getMenu(int i) {
+        return daftarMenu[i];
+    }
+
+    public int getNumMenu() {
+        return numMenu;
     }
 }

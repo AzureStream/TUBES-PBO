@@ -1,5 +1,5 @@
 
-import java.util.List;
+import java.util.*;
 
 /**
  * -------------------------------- NOTE -------------------------------------
@@ -12,14 +12,19 @@ import java.util.List;
  * ---------------------------------------------------------------------------
  */
 public class Aplikasi {
-    private List<Pelanggan> daftarPelanggan;
-    private List<Pengemudi> daftarPengemudi;
-    private List<Restoran> daftarRestoran;
+    private List<Pelanggan> daftarPelanggan = new ArrayList();
+    private List<Pengemudi> daftarPengemudi = new ArrayList();
+    private List<Restoran> daftarRestoran = new ArrayList();
     
-    public void addPengemudi(String platNomor, String nama){
-        Pengemudi p = new Pengemudi(platNomor, nama);
+    public void addPengemudi(Pengemudi p){
         this.daftarPengemudi.add(p);
     }
     
+    public void addPelanggan(Pelanggan c){
+        daftarPelanggan.add(c);
+    }
     
+    public void addRestoran(Restoran r){
+        daftarRestoran.add(r);
+    }
 }

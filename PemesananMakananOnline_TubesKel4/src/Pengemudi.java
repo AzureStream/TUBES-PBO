@@ -10,12 +10,23 @@
  */
 public class Pengemudi extends Orang {
     private String platNomor;
+    private String idPengemudi;
 
-    public Pengemudi(String platNomor, String nama) {
+    public Pengemudi(String platNomor, String nama, String id) {
         super(nama);
         this.platNomor = platNomor;
+        this.idPengemudi = id;
     }
-    
-    
-    
+
+    public String getPlatNomor() {
+        return platNomor;
+    }
+
+    public void setPlatNomor(String platNomor) {
+        this.platNomor = platNomor;
+    }
+
+    public String getIdPengemudi() {
+        return idPengemudi;
+    }
 }

@@ -1,5 +1,5 @@
 
-import java.util.List;
+import java.util.*;
 
 /**
  * -------------------------------- NOTE -------------------------------------
@@ -14,9 +14,14 @@ import java.util.List;
 public class Pesanan {
     private Pengemudi driver;
     private Restoran restoran;
-    private List<Menu> menuPesanan;
-    private String status;
+    private List<Menu> menuPesanan = new ArrayList();
+    private String status = "Pesanan dibuat";
 
+    public Pesanan(Pengemudi driver, Restoran restoran) {
+        addPengemudi(driver);
+        addRestoran(restoran);
+    }
+    
     public void addPengemudi(Pengemudi p){
         this.driver = p;
     }
@@ -26,6 +31,10 @@ public class Pesanan {
     }
     
     public void addMenu(Menu m){
-        this.menuPesanan.add(m);
+        menuPesanan.add(m);
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

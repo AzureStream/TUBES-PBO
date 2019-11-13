@@ -1,5 +1,5 @@
 
-import java.util.List;
+import java.util.*;
 
 /**
  * -------------------------------- NOTE -------------------------------------
@@ -11,10 +11,26 @@ import java.util.List;
  * 3. RACHMAT DWI PUTRA (NIM 1301180201)
  * ---------------------------------------------------------------------------
  */
-public class Pelanggan {
-    private List<Pesanan> pesanan;
+public class Pelanggan extends Orang {
+    private List<Pesanan> daftarPesanan;
+    private String idPelanggan;
+
+    public Pelanggan(String nama, String id) {
+        super(nama);
+        this.idPelanggan = id;
+        daftarPesanan = new ArrayList<>();
+    }
+
+    public String getIdPelanggan() {
+        return idPelanggan;
+    }
+
+    public List<Pesanan> getDaftarPesanan() {
+        return daftarPesanan;
+    }
     
-    public void createPesanan(Pesanan p){
-        this.pesanan.add(p);
+    public void createPesanan(Pengemudi p, Restoran r){
+        Pesanan pesan = new Pesanan(p,r);
+        daftarPesanan.add(pesan);
     }
 }
