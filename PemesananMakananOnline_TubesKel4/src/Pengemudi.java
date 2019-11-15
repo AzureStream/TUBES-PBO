@@ -11,11 +11,11 @@
 public class Pengemudi extends Orang {
     private String platNomor;
     private String idPengemudi;
+    private String status;
 
-    public Pengemudi(String platNomor, String nama, String id) {
+    public Pengemudi(String platNomor, String nama) {
         super(nama);
         this.platNomor = platNomor;
-        this.idPengemudi = id;
     }
 
     public String getPlatNomor() {
@@ -28,5 +28,18 @@ public class Pengemudi extends Orang {
 
     public String getIdPengemudi() {
         return idPengemudi;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    public void displayPengemudi(){
+        System.out.println("Nama: "+this.getNama());
+        System.out.println("Plat Nomor: "+this.getPlatNomor());
     }
 }

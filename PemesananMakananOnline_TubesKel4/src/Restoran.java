@@ -1,3 +1,7 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * -------------------------------- NOTE -------------------------------------
  * TUGAS BESAR PEMROGRAMAN BERORIENTASI OBJEK A 2019/2020
@@ -10,16 +14,26 @@
  */
 public class Restoran {
     private String namaRestoran;
-    private Menu[] daftarMenu;
+    private String idRestoran;
+    private List<Menu> daftarMenu;
     private int numMenu = 0;
 
     public Restoran(String namaRestoran) {
         this.namaRestoran = namaRestoran;
+        daftarMenu = new ArrayList();
     }
     
     public void createMenu(String namaMenu, int hargaMenu){
-        this.daftarMenu[numMenu] = new Menu(namaMenu, hargaMenu);
+        this.daftarMenu.add(numMenu, new Menu(namaMenu, hargaMenu));
         numMenu++;
+    }
+
+    public String getIdRestoran() {
+        return idRestoran;
+    }
+
+    public void setIdRestoran(String idRestoran) {
+        this.idRestoran = idRestoran;
     }
 
     public String getNamaRestoran() {
@@ -30,12 +44,12 @@ public class Restoran {
         this.namaRestoran = namaRestoran;
     }
 
-    public Menu[] getDaftarMenu() {
+    public List<Menu> getDaftarMenu() {
         return daftarMenu;
     }
     
     public Menu getMenu(int i) {
-        return daftarMenu[i];
+        return daftarMenu.get(i);
     }
 
     public int getNumMenu() {

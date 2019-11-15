@@ -15,9 +15,8 @@ public class Pelanggan extends Orang {
     private List<Pesanan> daftarPesanan;
     private String idPelanggan;
 
-    public Pelanggan(String nama, String id) {
+    public Pelanggan(String nama) {
         super(nama);
-        this.idPelanggan = id;
         daftarPesanan = new ArrayList<>();
     }
 
@@ -27,6 +26,10 @@ public class Pelanggan extends Orang {
 
     public List<Pesanan> getDaftarPesanan() {
         return daftarPesanan;
+    }
+    
+    public Pesanan getPesanan(int i){
+        return daftarPesanan.get(i);
     }
     
     public void createPesanan(Pengemudi p, Restoran r){

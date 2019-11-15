@@ -12,19 +12,57 @@ import java.util.*;
  * ---------------------------------------------------------------------------
  */
 public class Aplikasi {
-    private List<Pelanggan> daftarPelanggan = new ArrayList();
-    private List<Pengemudi> daftarPengemudi = new ArrayList();
-    private List<Restoran> daftarRestoran = new ArrayList();
+    private List<Pelanggan> daftarPelanggan;
+    private List<Pengemudi> daftarPengemudi;
+    private List<Restoran> daftarRestoran;
+
+    public Aplikasi() {
+        daftarPelanggan = new ArrayList();
+        daftarPengemudi = new ArrayList();
+        daftarRestoran = new ArrayList();
+    }
     
     public void addPengemudi(Pengemudi p){
         this.daftarPengemudi.add(p);
+    }
+    
+    public Pengemudi getPengemudi(String idPengemudi){
+        for (Pengemudi pengemudi : daftarPengemudi) {
+            if (pengemudi.getIdPengemudi() == idPengemudi){
+                return pengemudi;
+            }
+        }
+        return null;
+    }
+    
+    public void editPengemudi(String idPengemudi){
+        Pengemudi p = getPengemudi(idPengemudi);
+        p.setNama(idPengemudi);
     }
     
     public void addPelanggan(Pelanggan c){
         daftarPelanggan.add(c);
     }
     
+    public Pelanggan getPelanggan(String idPelanggan){
+        for (Pelanggan pelanggan : daftarPelanggan) {
+            if (pelanggan.getIdPelanggan() == idPelanggan){
+                return pelanggan;
+            }
+        }
+        return null;
+    }
+    
     public void addRestoran(Restoran r){
         daftarRestoran.add(r);
+    }
+    
+    public Restoran getRestoran(String idRestoran){
+        for (Restoran restoran : daftarRestoran) {
+            if (restoran.getIdRestoran()== idRestoran){
+                return restoran;
+            }
+        }
+        return null;
     }
 }

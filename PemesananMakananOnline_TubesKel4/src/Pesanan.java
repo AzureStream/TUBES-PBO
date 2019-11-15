@@ -37,4 +37,21 @@ public class Pesanan {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getStatus() {
+        return status;
+    }
+    
+    public void displayPesanan(){
+        System.out.println("===============");
+        System.out.println("PESANAN");
+        System.out.println("Nama Restoran: "+this.restoran.getNamaRestoran());
+        System.out.println("Menu yang dipesan: ");
+        int t = 1;
+        for (Menu menu : menuPesanan) {
+            System.out.println(t+". "+menu.getNamaMenu()+" seharga Rp."+menu.getHargaMenu());
+        }
+        System.out.println("Driver yang mengantar: "+this.driver.getNama()+" ("+this.driver.getPlatNomor()+")");
+        System.out.println("Status: "+getStatus());
+    }
 }

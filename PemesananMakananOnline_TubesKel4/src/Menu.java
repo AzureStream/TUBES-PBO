@@ -33,5 +33,8 @@ public class Menu {
         this.hargaMenu = hargaMenu;
     }
     
-    
+    public void displayMenu(){
+        System.out.println("Nama Menu : "+this.getNamaMenu());
+        System.out.println("Harga : "+this.getHargaMenu());
+    }
 }
