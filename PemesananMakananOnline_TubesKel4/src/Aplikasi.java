@@ -15,12 +15,25 @@ public class Aplikasi {
     private List<Pelanggan> daftarPelanggan;
     private List<Pengemudi> daftarPengemudi;
     private List<Restoran> daftarRestoran;
+    private String idLogin;
 
     public Aplikasi() {
         daftarPelanggan = new ArrayList();
         daftarPengemudi = new ArrayList();
         daftarRestoran = new ArrayList();
     }
+
+    public List<Pelanggan> getDaftarPelanggan() {
+        return daftarPelanggan;
+    }
+
+    public List<Pengemudi> getDaftarPengemudi() {
+        return daftarPengemudi;
+    }
+
+    public List<Restoran> getDaftarRestoran() {
+        return daftarRestoran;
+    }    
     
     public void addPengemudi(Pengemudi p){
         this.daftarPengemudi.add(p);
@@ -66,8 +79,24 @@ public class Aplikasi {
         return null;
     }
     
-    public void createPesanan(Pelanggan c, Pengemudi p, Restoran r){
-        Pesanan o = new Pesanan(p, r);
-        
+    public String searchResto(String id){
+        int i=0;
+        while ((i<daftarRestoran.size()) && (daftarRestoran.get(i).getIdRestoran() != id)){
+            i++;
+        }
+        return daftarRestoran.get(i).toString();
     }
+    
+    public String[] getRestoListId(){
+        String[] listId = new String[daftarRestoran.size()];
+        for (int i = 0; i < daftarRestoran.size(); i++) {
+            listId[i] = daftarRestoran.get(i).getIdRestoran();
+        }
+        return listId;
+    }
+    
+//    public void createPesanan(Pelanggan c, Pengemudi p, Restoran r){
+//        Pesanan o = new Pesanan(p, r);
+//        
+//    }
 }

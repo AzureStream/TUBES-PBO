@@ -11,7 +11,7 @@
 public class Pengemudi extends Orang {
     private String platNomor;
     private String idPengemudi;
-    private String status;
+    private String statusPengemudi = "Available";
     private static int sid = 1;
 
     public Pengemudi(String platNomor, String nama) {
@@ -33,12 +33,12 @@ public class Pengemudi extends Orang {
         return idPengemudi;
     }
 
-    public String getStatus() {
-        return status;
+    public String getStatusPengemudi() {
+        return statusPengemudi;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusPengemudi(String status) {
+        this.statusPengemudi = status;
     }
     
     public void displayPengemudi(){

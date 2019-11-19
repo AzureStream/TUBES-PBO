@@ -19,11 +19,22 @@ public class Pesanan {
     private String status = "Pesanan dibuat";
     private static int sid = 1;
 
-    public Pesanan(Pengemudi driver, Restoran restoran) {
+    public Pesanan(Restoran restoran, List<Pengemudi> daftarPengemudi) {
+        driver = searchAvailPengemudi(daftarPengemudi);
         addPengemudi(driver);
         addRestoran(restoran);
         this.idOrder = "O-"+sid;
         sid++;
+    }
+    
+    public Pengemudi searchAvailPengemudi(List<Pengemudi> daftarPengemudi){
+        Pengemudi p = null;
+        int i = 0;
+        do {
+            p = daftarPengemudi.get(i);
+            i++;
+        } while(!p.getStatusPengemudi().equals("Available") && i<daftarPengemudi.size());
+        return p;
     }
     
     public void addPengemudi(Pengemudi p){

@@ -17,11 +17,28 @@ public class Restoran {
     private String idRestoran;
     private List<Menu> daftarMenu;
     private int numMenu = 0;
+    private static int sid=1;
 
     public Restoran(String namaRestoran) {
         this.namaRestoran = namaRestoran;
         daftarMenu = new ArrayList();
     }
+    
+    public Restoran(String idRestoran, String namaRestoran) {
+        this.namaRestoran = namaRestoran;
+        daftarMenu = new ArrayList();
+        this.idRestoran = idRestoran;
+        sid++;
+    }
+    
+    public String toString(){
+        return "ID: "+idRestoran+"\nName: "+namaRestoran;
+    }
+
+    public static int getSid() {
+        return sid;
+    }
+    
     
     public void createMenu(String namaMenu, int hargaMenu){
         this.daftarMenu.add(numMenu, new Menu(namaMenu, hargaMenu));

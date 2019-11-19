@@ -35,8 +35,8 @@ public class Pelanggan extends Orang {
         return daftarPesanan.get(i);
     }
     
-    public void createPesanan(Pengemudi p, Restoran r){
-        Pesanan pesan = new Pesanan(p,r);
+    public void createPesanan(Restoran r, List<Pengemudi> daftarPengemudi){
+        Pesanan pesan = new Pesanan(r, daftarPengemudi);
         daftarPesanan.add(pesan);
     }
 }
