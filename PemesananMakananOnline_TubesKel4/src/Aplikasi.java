@@ -65,4 +65,9 @@ public class Aplikasi {
         }
         return null;
     }
+    
+    public void createPesanan(Pelanggan c, Pengemudi p, Restoran r){
+        Pesanan o = new Pesanan(p, r);
+        
+    }
 }

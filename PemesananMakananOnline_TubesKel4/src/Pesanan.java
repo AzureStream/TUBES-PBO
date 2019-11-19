@@ -12,14 +12,18 @@ import java.util.*;
  * ---------------------------------------------------------------------------
  */
 public class Pesanan {
+    private String idOrder;
     private Pengemudi driver;
     private Restoran restoran;
     private List<Menu> menuPesanan = new ArrayList();
     private String status = "Pesanan dibuat";
+    private static int sid = 1;
 
     public Pesanan(Pengemudi driver, Restoran restoran) {
         addPengemudi(driver);
         addRestoran(restoran);
+        this.idOrder = "O-"+sid;
+        sid++;
     }
     
     public void addPengemudi(Pengemudi p){
@@ -28,6 +32,10 @@ public class Pesanan {
     
     public void addRestoran(Restoran r){
         this.restoran = r;
+    }
+
+    public String getIdOrder() {
+        return idOrder;
     }
     
     public void addMenu(Menu m){

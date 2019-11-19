@@ -12,9 +12,12 @@ public class Pengemudi extends Orang {
     private String platNomor;
     private String idPengemudi;
     private String status;
+    private static int sid = 1;
 
     public Pengemudi(String platNomor, String nama) {
         super(nama);
+        this.idPengemudi = "T-"+sid;
+        sid++;
         this.platNomor = platNomor;
     }
 

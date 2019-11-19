@@ -14,9 +14,12 @@ import java.util.*;
 public class Pelanggan extends Orang {
     private List<Pesanan> daftarPesanan;
     private String idPelanggan;
+    private static int sid = 1;
 
     public Pelanggan(String nama) {
         super(nama);
+        this.idPelanggan = "P-"+sid;
+        sid++;
         daftarPesanan = new ArrayList<>();
     }
 
