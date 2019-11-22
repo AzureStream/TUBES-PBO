@@ -72,4 +72,8 @@ public class Restoran {
     public int getNumMenu() {
         return numMenu;
     }
+    
+    public void displayDaftarMenu(int i){
+        getDaftarMenu().get(i).displayMenu();
+    }
 }

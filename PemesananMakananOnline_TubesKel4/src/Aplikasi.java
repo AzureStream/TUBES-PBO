@@ -87,6 +87,15 @@ public class Aplikasi {
         return daftarRestoran.get(i).toString();
     }
     
+    public Menu searchMenuRestoran(String idRestoran, String namaMenu){
+        Restoran r = getRestoran(idRestoran);
+        int i = 0;
+        while((i<r.getDaftarMenu().size()) && (r.getDaftarMenu().get(i).getNamaMenu() != namaMenu)){
+            i++;
+        }
+        return r.getDaftarMenu().get(i);
+    }
+    
     public String[] getRestoListId(){
         String[] listId = new String[daftarRestoran.size()];
         for (int i = 0; i < daftarRestoran.size(); i++) {
@@ -95,8 +104,27 @@ public class Aplikasi {
         return listId;
     }
     
-//    public void createPesanan(Pelanggan c, Pengemudi p, Restoran r){
-//        Pesanan o = new Pesanan(p, r);
-//        
-//    }
+    public void createMenu(String idRestoran, String namaMenu, int hargaMenu){
+        Restoran r = getRestoran(idRestoran);
+        r.createMenu(namaMenu, hargaMenu);
+    }
+    
+    public void readMenu(String idRestoran){
+        Restoran r = getRestoran(idRestoran);
+        for (int j = 0; j < r.getDaftarMenu().size(); j++) {
+            r.getDaftarMenu().get(j).displayMenu();
+        }
+    }
+    
+    public void updateMenu(String idRestoran, String namaMenuLama, String namaMenuBaru, int hargaMenu){
+        Restoran r = getRestoran(idRestoran);
+        Menu m = searchMenuRestoran(r.getIdRestoran(), namaMenuLama);
+        m.setNamaMenu(namaMenuBaru);
+        m.setHargaMenu(hargaMenu);
+    }
+    
+    public void deleteMenu(String idRestoran, String namaMenu){
+        Restoran r = getRestoran(idRestoran);
+        r.getDaftarMenu().remove(searchMenuRestoran(r.getIdRestoran(), namaMenu));
+    }
 }
