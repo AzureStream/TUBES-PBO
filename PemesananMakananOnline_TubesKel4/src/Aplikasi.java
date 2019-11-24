@@ -23,16 +23,28 @@ public class Aplikasi {
         daftarRestoran = new ArrayList();
     }
 
-    public List<Pelanggan> getDaftarPelanggan() {
-        return daftarPelanggan;
+    public String[] getDaftarPelanggan() {
+        String[] listId = new String[daftarPelanggan.size()];
+        for (int i=0; i<daftarPelanggan.size(); i++) {
+            listId[i] = daftarPelanggan.get(i).getIdPelanggan();
+        }
+        return listId;    
     }
 
-    public List<Pengemudi> getDaftarPengemudi() {
-        return daftarPengemudi;
+    public String[] getDaftarPengemudi() {
+        String[] listId = new String[daftarPengemudi.size()];
+        for (int i=0; i<daftarPengemudi.size(); i++) {
+            listId[i] = daftarPengemudi.get(i).getIdPengemudi();
+        }
+        return listId;
     }
 
-    public List<Restoran> getDaftarRestoran() {
-        return daftarRestoran;
+    public String[] getDaftarRestoran() {
+        String[] listId = new String[daftarRestoran.size()];
+        for (int i=0; i<daftarRestoran.size(); i++) {
+            listId[i] = daftarRestoran.get(i).getIdRestoran();
+        }
+        return listId;
     }    
     
     public void addPengemudi(Pengemudi p){
@@ -48,9 +60,23 @@ public class Aplikasi {
         return null;
     }
     
-    public void editPengemudi(String idPengemudi){
+    public void editPengemudi(String idPengemudi, String nama){
         Pengemudi p = getPengemudi(idPengemudi);
-        p.setNama(idPengemudi);
+        p.setNama(nama);
+    }
+    
+    public Pengemudi searchAvailPengemudi(){
+        Pengemudi p = null;
+        int i = 0;
+        do {
+            p = daftarPengemudi.get(i);
+            i++;
+        } while(!p.getStatusPengemudi().equals("Available") && i<daftarPengemudi.size());
+        if(p.getStatusPengemudi().equals("Available")){
+            return p;
+        } else {
+            return null;
+        }
     }
     
     public void addPelanggan(Pelanggan c){
