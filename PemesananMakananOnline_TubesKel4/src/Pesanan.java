@@ -20,7 +20,7 @@ public class Pesanan {
     private static int sid = 1;
 
     public Pesanan(Restoran restoran, List<Pengemudi> daftarPengemudi) {
-        driver = searchAvailPengemudi(daftarPengemudi);
+        driver = searchAvailPengemudi(daftarPengemudi); //ditaro di application
         addPengemudi(driver);
         addRestoran(restoran);
         this.idOrder = "O-"+sid;
