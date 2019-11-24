@@ -30,9 +30,9 @@ public class GUI_Pelanggan_History extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listHistoryPelanggan = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taHistoryPelanggan = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,12 +42,12 @@ public class GUI_Pelanggan_History extends javax.swing.JFrame {
 
         jLabel2.setText("Detail");
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listHistoryPelanggan);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        taHistoryPelanggan.setEditable(false);
+        taHistoryPelanggan.setColumns(20);
+        taHistoryPelanggan.setRows(5);
+        jScrollPane2.setViewportView(taHistoryPelanggan);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,10 +138,10 @@ public class GUI_Pelanggan_History extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JList<String> listHistoryPelanggan;
+    private javax.swing.JTextArea taHistoryPelanggan;
     // End of variables declaration//GEN-END:variables
 }
