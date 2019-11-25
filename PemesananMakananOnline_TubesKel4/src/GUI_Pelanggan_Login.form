@@ -133,8 +133,14 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="tfNamaPelangganRegister">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNamaPelangganRegisterActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="tfIDPelangganRegister">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>

@@ -66,6 +66,8 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
 
         jLabel3.setText("Password");
 
+        tfIDPengemudiRegister.setEditable(false);
+
         btnDaftarPengemudi.setText("Daftar");
         btnDaftarPengemudi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
