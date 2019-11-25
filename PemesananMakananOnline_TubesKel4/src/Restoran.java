@@ -15,6 +15,7 @@ import java.util.List;
 public class Restoran {
     private String namaRestoran;
     private String idRestoran;
+    private String passRestoran;
     private List<Menu> daftarMenu;
     private int numMenu = 0;
     private static int sid=1;
@@ -24,21 +25,21 @@ public class Restoran {
         daftarMenu = new ArrayList();
     }
     
-    public Restoran(String idRestoran, String namaRestoran) {
+    public Restoran(String idRestoran, String namaRestoran, String passRestoran) {
         this.namaRestoran = namaRestoran;
         daftarMenu = new ArrayList();
         this.idRestoran = idRestoran;
+        this.passRestoran = passRestoran;
         sid++;
     }
     
     public String toString(){
-        return "ID: "+idRestoran+"\nName: "+namaRestoran;
+        return "Restoran dengan ID "+idRestoran+" bernama "+namaRestoran+" berhasil didaftarkan";
     }
 
     public static int getSid() {
         return sid;
     }
-    
     
     public void createMenu(String namaMenu, int hargaMenu){
         this.daftarMenu.add(numMenu, new Menu(namaMenu, hargaMenu));

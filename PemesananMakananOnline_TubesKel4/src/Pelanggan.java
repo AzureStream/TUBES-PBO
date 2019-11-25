@@ -14,11 +14,13 @@ import java.util.*;
 public class Pelanggan extends Orang {
     private List<Pesanan> daftarPesanan;
     private String idPelanggan;
+    private String passPelanggan;
     private static int sid = 1;
 
-    public Pelanggan(String nama) {
+    public Pelanggan(String nama, String passPelanggan) {
         super(nama);
         this.idPelanggan = "P-"+sid;
+        this.passPelanggan = passPelanggan;
         sid++;
         daftarPesanan = new ArrayList<>();
     }

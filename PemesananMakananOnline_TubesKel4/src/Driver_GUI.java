@@ -8,7 +8,7 @@
  *
  * @author Asus
  */
-public class Driver_GUI_Restoran {
+public class Driver_GUI {
     public static void main(String[] args) {
         new Controller();
     }
