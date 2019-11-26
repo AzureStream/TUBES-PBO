@@ -113,6 +113,14 @@ public class Aplikasi {
         return daftarRestoran.get(i).toString();
     }
     
+    public Restoran searchResto(String id, String pass){
+        int i=0;
+        while ((i<daftarRestoran.size()) && (daftarRestoran.get(i).getIdRestoran() != id) && (daftarRestoran.get(i).getPassRestoran() != pass)){
+            i++;
+        }
+        return daftarRestoran.get(i);
+    }
+    
     public Menu searchMenuRestoran(String idRestoran, String namaMenu){
         Restoran r = getRestoran(idRestoran);
         int i = 0;
@@ -128,6 +136,14 @@ public class Aplikasi {
             listId[i] = daftarRestoran.get(i).getIdRestoran();
         }
         return listId;
+    }
+    
+    public String[] getNamaMenu(Restoran r){
+        String[] listMenu = new String[r.getDaftarMenu().size()];
+        for (int i = 0; i < r.getDaftarMenu().size(); i++) {
+            listMenu[i] = r.getDaftarMenu().get(i).getNamaMenu();
+        }
+        return listMenu;
     }
     
     public void createMenu(String idRestoran, String namaMenu, int hargaMenu){

@@ -213,7 +213,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
     }
 
     public void setRestoIdRegister(int id) {
-        tfIDRestoranRegister.setText("T-" + id);
+        tfIDRestoranRegister.setText("R-" + id);
     }
 
     public String getRestoName() {
@@ -240,11 +240,8 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         return btnDaftarResto;
     }
 
-    public void addRegisterActionListener(ActionListener al) {
+    public void addActionListener(ActionListener al) {
         btnDaftarResto.addActionListener(al);
-    }
-
-    public void addLoginActionListener(ActionListener al) {
         btnRestoLogin.addActionListener(al);
     }
 

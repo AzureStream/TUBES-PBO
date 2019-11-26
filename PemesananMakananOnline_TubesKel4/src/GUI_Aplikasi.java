@@ -129,13 +129,9 @@ public class GUI_Aplikasi extends javax.swing.JFrame {
         return btnRestoran;
     }
     
-    public void addRestoActionListener(ActionListener al){
+    public void addActionListener(ActionListener al){
         btnRestoran.addActionListener(al);
-    }
-    public void addPelangganActionListener(ActionListener al){
         btnPelanggan.addActionListener(al);
-    }
-    public void addDriverActionListener(ActionListener al){
         btnDriver.addActionListener(al);
     }
 

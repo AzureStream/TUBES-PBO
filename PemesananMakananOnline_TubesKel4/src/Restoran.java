@@ -54,6 +54,14 @@ public class Restoran {
         this.idRestoran = idRestoran;
     }
 
+    public String getPassRestoran() {
+        return passRestoran;
+    }
+
+    public void setPassRestoran(String passRestoran) {
+        this.passRestoran = passRestoran;
+    }
+
     public String getNamaRestoran() {
         return namaRestoran;
     }
