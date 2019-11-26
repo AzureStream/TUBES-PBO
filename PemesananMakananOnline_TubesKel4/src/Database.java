@@ -1,5 +1,7 @@
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Database {
     private Connection con;
@@ -16,6 +18,38 @@ public class Database {
         }
     }
     
+    //Pelanggan
+    public void savePelanggan(Pelanggan c) {
+        try {
+            String query = "insert into pelanggan values('"+c.getIdPelanggan()+"','"+c.getNama()+"','"+c.getPassPelanggan()+"');";
+            Statement s = con.createStatement();
+            s.execute(query);
+            System.out.println("Saving success");
+        } catch (SQLException ex) {
+            System.out.println("Saving error");
+        }
+    }
+    
+    public ArrayList<Pelanggan> loadAllPelanggan() {
+        try {
+            ArrayList<Pelanggan> pelanggan = new ArrayList();
+            String query = "select * from pelanggan";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            Pelanggan c;
+            while(rs.next()) {
+                String id = rs.getString(1);
+                String name = rs.getString(2);
+                String pass = rs.getString(3);
+                c = new Pelanggan(id,name,pass);
+            }
+            return pelanggan;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
+    //Restoran
     public void saveResto(Restoran r){
         try {
             String query = "insert into restoran values('"+r.getIdRestoran()+"','"+r.getNamaRestoran()+"','"+r.getPassRestoran()+"');";

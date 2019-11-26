@@ -17,9 +17,9 @@ public class Pelanggan extends Orang {
     private String passPelanggan;
     private static int sid = 1;
 
-    public Pelanggan(String nama, String passPelanggan) {
+    public Pelanggan(String id, String nama, String passPelanggan) {
         super(nama);
-        this.idPelanggan = "P-"+sid;
+        this.idPelanggan = id;
         this.passPelanggan = passPelanggan;
         sid++;
         daftarPesanan = new ArrayList<>();
@@ -40,5 +40,13 @@ public class Pelanggan extends Orang {
     public void createPesanan(Restoran r, Pengemudi p){
         Pesanan pesan = new Pesanan(r,p);
         daftarPesanan.add(pesan);
+    }
+
+    public String getPassPelanggan() {
+        return passPelanggan;
+    }
+
+    public void setPassPelanggan(String passPelanggan) {
+        this.passPelanggan = passPelanggan;
     }
 }
