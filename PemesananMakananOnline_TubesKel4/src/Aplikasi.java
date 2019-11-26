@@ -134,11 +134,13 @@ public class Aplikasi {
         return daftarRestoran.get(i).toString();
     }
     
-    public boolean searchResto(String id, String pass){
-        for (Restoran restoran : daftarRestoran) {
-            if (restoran.getIdRestoran()== id && restoran.getPassRestoran()== pass){
-                return true;
-            }
+//    public Restoran cariResto(Restoran r){
+//        return db.cekResto(r);
+//    }
+    
+    public boolean cekResto(String id, String pass) {
+        if (db.cekResto(id, pass) != null){
+            return true;
         }
         return false;
     }

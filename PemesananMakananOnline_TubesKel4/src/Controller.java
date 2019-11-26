@@ -68,8 +68,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             try {
                 String id = restoLogin.getRestoIdLogin();
                 String pass = restoLogin.getPassRestoLogin();
-                r = new Restoran(id, pass);
-                if (model.cekResto(r,id,pass)) {
+                if (!model.cekResto(id,pass)) {
                     restoHome.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
@@ -78,7 +77,6 @@ public class Controller extends MouseAdapter implements ActionListener {
                 System.out.println(e);
             }
         }
-
         // Button RestoHome
         if (source.equals(restoHome.getBtnCreateMenu())) {
             try {
