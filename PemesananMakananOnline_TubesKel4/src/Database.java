@@ -46,4 +46,18 @@ public class Database {
             return null;
         }
     }
+    
+    public Restoran cekResto(Restoran re){
+        try {
+            String query = "select * from restoran where idRestoran='" + re.getIdRestoran() + "' and passRestoran='" + re.getPassRestoran() + "';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            String id = rs.getString(1);
+            String pass = rs.getString(2);
+            Restoran r = new Restoran(id, pass);
+            return r;
+        } catch (SQLException se) {
+            return null;
+        }
+    }
 }

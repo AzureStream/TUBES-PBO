@@ -32,6 +32,12 @@ public class Restoran {
         this.passRestoran = passRestoran;
         sid++;
     }
+
+    public Restoran(String idRestoran, String passRestoran) {
+        this.idRestoran = idRestoran;
+        this.passRestoran = passRestoran;
+    }
+    
     
     public String toString(){
         return "Restoran dengan ID "+idRestoran+" bernama "+namaRestoran+" berhasil didaftarkan";
