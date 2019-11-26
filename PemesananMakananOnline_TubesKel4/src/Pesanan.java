@@ -50,17 +50,20 @@ public class Pesanan {
         return status;
     }
     
-    public void displayPesanan(){
-        System.out.println("===============");
-        System.out.println("PESANAN");
-        System.out.println("Nama Restoran: "+this.restoran.getNamaRestoran());
-        System.out.println("Menu yang dipesan: ");
+    public String displayPesanan(){
+        String s = "===============\n"
+                +"PESANAN\n"
+                +"Nama Restoran: "+this.restoran.getNamaRestoran()+"\n"
+                +"Menu yang dipesan:\n";
+        
         int t = 1;
         for (Menu menu : menuPesanan) {
-            System.out.println(t+". "+menu.getNamaMenu()+" seharga Rp."+menu.getHargaMenu());
+            s += t+". "+menu.getNamaMenu()+" seharga Rp."+menu.getHargaMenu()+"\n";
             t++;
         }
-        System.out.println("Driver yang mengantar: "+this.driver.getNama()+" ("+this.driver.getPlatNomor()+")");
-        System.out.println("Status: "+getStatus());
+        s += "Driver yang mengantar: "+this.driver.getNama()+" ("+this.driver.getPlatNomor()+")";
+        s += "Status: "+getStatus();
+        
+        return s;
     }
 }

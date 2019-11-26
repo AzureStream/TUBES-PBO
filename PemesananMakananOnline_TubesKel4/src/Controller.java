@@ -48,6 +48,13 @@ public class Controller extends MouseAdapter implements ActionListener {
             driverLogin.setVisible(true);
             home.dispose();
         }
+        
+        //Pelanggan Home
+        // ---- Under Construction ----
+        
+        //Pengemudi Home
+        // ---- Under Construction ----
+        
         // Button RestoLogin
         if (source.equals(restoLogin.getBtnDaftarResto())) {
             try {
@@ -92,5 +99,27 @@ public class Controller extends MouseAdapter implements ActionListener {
             JOptionPane.showMessageDialog(null, "Menu berhasil ditambahkan");
         }
 
+    }
+    
+    public void mousePressed(MouseEvent me) {
+        Object source = me.getSource();
+        
+        //Pelanggan Home/Pesan/List Resto
+        if (source.equals(pelangganHome.getListRestoran())) {
+            String id = pelangganHome.getSelectedRestoran();
+            pelangganHome.setListMenu(model.getRestoran(id).getListMenu());
+        }
+        
+        //Pelanggan Home/History
+        if (source.equals(pelangganHome.getListHistory())) {
+            String id = pelangganHome.getSelectedHistory();
+            pelangganHome.setTextDetailHistory(model.getPesanan(id).displayPesanan());
+        }
+        
+        //Pengemudi Home/History
+        if (source.equals(driverHome.getListHistory())) {
+            String id = driverHome.getSelectedHistory();
+            driverHome.setTextHistory(model.getPesanan(id).displayPesanan());
+        }
     }
 }

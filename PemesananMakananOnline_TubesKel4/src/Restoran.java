@@ -91,4 +91,14 @@ public class Restoran {
     public void displayDaftarMenu(int i){
         getDaftarMenu().get(i).displayMenu();
     }
+    
+    public String[] getListMenu() {
+        String[] menu = new String[daftarMenu.size()];
+        int i = 0;
+        for (Menu m: daftarMenu) {
+            menu[i] = m.getNamaMenu()+" : Rp"+m.getHargaMenu();
+            i++;
+        }
+        return menu;
+    }
 }

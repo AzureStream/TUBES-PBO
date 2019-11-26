@@ -15,6 +15,7 @@ public class Aplikasi {
     private List<Pelanggan> daftarPelanggan;
     private List<Pengemudi> daftarPengemudi;
     private List<Restoran> daftarRestoran;
+    private List<Pesanan> daftarPesanan;
     private String idLogin;
     Database db;
 
@@ -49,7 +50,15 @@ public class Aplikasi {
             listId[i] = daftarRestoran.get(i).getIdRestoran();
         }
         return listId;
-    }    
+    }
+
+    public String[] getDaftarPesanan() {
+        String[] listId = new String[daftarPesanan.size()];
+        for (int i=0; i<daftarPesanan.size(); i++) {
+            listId[i] = daftarPesanan.get(i).getIdOrder();
+        }
+        return listId;
+    }
     
     //Pengemudi
     public void addPengemudi(Pengemudi p){
@@ -154,12 +163,14 @@ public class Aplikasi {
         return r.getDaftarMenu().get(i);
     }
     
-    public String[] getRestoListId(){
-        String[] listId = new String[daftarRestoran.size()];
-        for (int i = 0; i < daftarRestoran.size(); i++) {
-            listId[i] = daftarRestoran.get(i).getIdRestoran();
+    //Pesanan
+    public Pesanan getPesanan(String id) {
+        for (Pesanan o: daftarPesanan) {
+            if (o.getIdOrder() == id) {
+                return o;
+            }
         }
-        return listId;
+        return null;
     }
     
     //Menu
