@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
 public class Controller extends MouseAdapter implements ActionListener {
-    
+
     GUI_Restoran_Login restoLogin;
     GUI_Restoran_Home restoHome;
     GUI_Pelanggan_Login pelangganLogin;
@@ -15,7 +15,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     GUI_Pengemudi_Home driverHome;
     GUI_Aplikasi home;
     Aplikasi model;
-    
+
     public Controller() {
         restoLogin = new GUI_Restoran_Login();
         restoHome = new GUI_Restoran_Home();
@@ -30,19 +30,23 @@ public class Controller extends MouseAdapter implements ActionListener {
         restoHome.addMouseListener(this);
         home.addActionListener(this);
         home.setVisible(true);
+        model.loadResto();
         restoLogin.setRestoIdRegister(Restoran.getSid());
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         // Button Home
         if (source.equals(home.getBtnRestoran())) {
             restoLogin.setVisible(true);
+            home.dispose();
         } else if (source.equals(home.getBtnPelanggan())) {
             pelangganLogin.setVisible(true);
+            home.dispose();
         } else if (source.equals(home.getBtnDriver())) {
             driverLogin.setVisible(true);
+            home.dispose();
         }
         // Button RestoLogin
         if (source.equals(restoLogin.getBtnDaftarResto())) {
@@ -58,9 +62,31 @@ public class Controller extends MouseAdapter implements ActionListener {
             }
             restoLogin.resetView();
             restoLogin.setRestoIdRegister(Restoran.getSid());
-        } else if (source.equals(restoLogin.getBtnLoginResto())) {
-            restoHome.setVisible(true);
-            
+        } 
+        if (source.equals(restoLogin.getBtnLoginResto())) {
+            String id = restoLogin.getRestoIdLogin();
+            String pass = restoLogin.getPassRestoLogin();
+            if (model.searchResto(id, pass)) {
+                restoHome.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "ID/Password salah");
+            }
         }
+
+        // Button RestoHome
+        if (source.equals(restoHome.getBtnCreateMenu())) {
+            try {
+                String idResto = restoLogin.getRestoIdLogin();
+                String nama = restoHome.getNamaMenu();
+                int harga = restoHome.getHargaMenu();
+                model.createMenu(idResto, nama, harga);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            restoHome.resetView();
+//            restoHome.setListMenu(model.getNamaMenu(r));
+            JOptionPane.showMessageDialog(null, "Menu berhasil ditambahkan");
+        }
+
     }
 }

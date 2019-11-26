@@ -16,11 +16,14 @@ public class Aplikasi {
     private List<Pengemudi> daftarPengemudi;
     private List<Restoran> daftarRestoran;
     private String idLogin;
+    Database db;
 
     public Aplikasi() {
         daftarPelanggan = new ArrayList();
         daftarPengemudi = new ArrayList();
         daftarRestoran = new ArrayList();
+        db=new Database();
+        db.connect();
     }
 
     public String[] getDaftarPelanggan() {
@@ -93,12 +96,25 @@ public class Aplikasi {
     }
     
     public void addRestoran(Restoran r){
-        daftarRestoran.add(r);
+        db.saveResto(r);
+    }
+    
+    public void loadResto(){
+        daftarRestoran=db.loadAllResto();
     }
     
     public Restoran getRestoran(String idRestoran){
         for (Restoran restoran : daftarRestoran) {
             if (restoran.getIdRestoran()== idRestoran){
+                return restoran;
+            }
+        }
+        return null;
+    }
+    
+    public Restoran getRestoran(String idRestoran, String pass){
+        for (Restoran restoran : daftarRestoran) {
+            if (restoran.getIdRestoran()== idRestoran && restoran.getPassRestoran()== pass){
                 return restoran;
             }
         }
@@ -113,12 +129,13 @@ public class Aplikasi {
         return daftarRestoran.get(i).toString();
     }
     
-    public Restoran searchResto(String id, String pass){
-        int i=0;
-        while ((i<daftarRestoran.size()) && (daftarRestoran.get(i).getIdRestoran() != id) && (daftarRestoran.get(i).getPassRestoran() != pass)){
-            i++;
+    public boolean searchResto(String id, String pass){
+        for (Restoran restoran : daftarRestoran) {
+            if (restoran.getIdRestoran()== id && restoran.getPassRestoran()== pass){
+                return true;
+            }
         }
-        return daftarRestoran.get(i);
+        return false;
     }
     
     public Menu searchMenuRestoran(String idRestoran, String namaMenu){
@@ -168,5 +185,16 @@ public class Aplikasi {
     public void deleteMenu(String idRestoran, String namaMenu){
         Restoran r = getRestoran(idRestoran);
         r.getDaftarMenu().remove(searchMenuRestoran(r.getIdRestoran(), namaMenu));
+    }
+    
+    public int newIdResto(){
+        if(daftarRestoran.size()==0){
+            return 1;
+        }else{
+            String lastId = daftarRestoran.get(daftarRestoran.size()-1).getIdRestoran();
+            String lastNumId = lastId.substring(2);
+            int lastNoId = Integer.parseInt(lastNumId);
+            return lastNoId+1;
+        }
     }
 }

@@ -164,8 +164,8 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         return tfNamaMenu.getText();
     }
     
-    public String getHargaMenu(){
-        return tfHargaMenu.getText();
+    public int getHargaMenu(){
+        return Integer.parseInt(tfHargaMenu.getText());
     }
 
     public JButton getBtnCreateMenu() {
