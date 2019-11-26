@@ -1,3 +1,7 @@
+
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -222,7 +226,52 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-
+    //TextField
+    public void setIdRegister(int id) {
+        tfIDPengemudiRegister.setText("D-"+id);
+    }
+    
+    public String getIdRegister() {
+        return tfIDPengemudiRegister.getText();
+    }
+    
+    public String getNama() {
+        return tfNamaPengemudiRegister.getText();
+    }
+    
+    public String getIdLogin() {
+        return tfIDPengemudiLogin.getText();
+    }
+    
+    //PasswordField
+    public String getPassRegister() {
+        return pfPasswordPengemudiRegister.getText();
+    }
+    
+    public String getPassLogin() {
+        return pfPasswordPengemudiLogin.getText();
+    }
+    
+    //Button Getter
+    public JButton getBtnDaftar() {
+        return btnDaftarPengemudi;
+    }
+    
+    public JButton getBtnLogin() {
+        return btnLoginPengemudi;
+    }
+    
+    //TextArea Setter
+    public void setTextRegister(String s) {
+        taPengemudiRegister.setText(s);
+    }
+    
+    //Misc
+    public void addActionListener(ActionListener x) {
+        btnDaftarPengemudi.addActionListener(x);
+        btnLoginPengemudi.addActionListener(x);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaftarPengemudi;
     private javax.swing.JButton btnLoginPengemudi;

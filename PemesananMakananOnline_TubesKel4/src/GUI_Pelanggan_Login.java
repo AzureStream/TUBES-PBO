@@ -204,6 +204,28 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         tfIDPelangganRegister.setText("C-"+id);
     }
     
+    public String getIdRegister() {
+        return tfIDPelangganRegister.getText();
+    }
+    
+    public String getNama() {
+        return tfNamaPelangganRegister.getText();
+    }
+    
+    public String getIdLogin() {
+        return tfIDPelangganLogin.getText();
+    }
+    
+    //PasswordField
+    
+    public String getPassRegister() {
+        return pfPasswordPelangganRegister.getText();
+    }
+    
+    public String getPassLogin() {
+        return pfPasswordPelangganLogin.getText();
+    }
+    
     //Button Getter
     public JButton getBtnDaftarPelanggan() {
         return btnDaftarPelanggan;
