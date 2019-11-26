@@ -34,6 +34,14 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        tfIdPesanan = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        listKeranjang = new javax.swing.JList<>();
+        btnFinish = new javax.swing.JButton();
+        btnOtw = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,15 +62,60 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel6.setText("Pesanan Sekarang");
+
+        tfIdPesanan.setEditable(false);
+
+        jLabel7.setText("Keranjang");
+
+        jScrollPane4.setViewportView(listKeranjang);
+
+        btnFinish.setText("Finish");
+
+        btnOtw.setText("On the way");
+
+        jLabel8.setText("Status");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(41, 41, 41)
+                        .addComponent(tfIdPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnFinish)
+                            .addComponent(btnOtw)
+                            .addComponent(jLabel8)))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 249, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tfIdPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel8)
+                        .addGap(13, 13, 13)
+                        .addComponent(btnOtw)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnFinish))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Ambil Pesanan", jPanel4);
@@ -214,9 +267,30 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
+    //TextField Section
+    public void setIdPesanan(String s) {
+        tfIdPesanan.setText(s);
+    }
+    
+    public String getNamaBaru() {
+        return tfNamaBaru.getText();
+    }
+    
+    public String getPassBaru() {
+        return tfPlatBaru.getText();
+    }
+    
     //Button Getter
     public JButton getBtnSimpan() {
         return btnSimpan;
+    }
+    
+    public JButton getBtnOtw() {
+        return btnOtw;
+    }
+    
+    public JButton getBtnFinish() {
+        return btnFinish;
     }
     
     //List Section
@@ -230,6 +304,14 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
     
     public String getSelectedHistory() {
         return listHistoryPengemudi.getSelectedValue();
+    }
+    
+    public void setListKeranjang(String[] keranjang) {
+        listKeranjang.setListData(keranjang);
+    }
+    
+    public JList getListKeranjang() {
+        return listKeranjang;
     }
     
     //TextArea Setter
@@ -256,12 +338,17 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFinish;
+    private javax.swing.JButton btnOtw;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -269,10 +356,13 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JList<String> listHistoryPengemudi;
+    private javax.swing.JList<String> listKeranjang;
     private javax.swing.JTextArea taEditProfil;
     private javax.swing.JTextArea taHistoryPengemudi;
+    private javax.swing.JTextField tfIdPesanan;
     private javax.swing.JTextField tfNamaBaru;
     private javax.swing.JTextField tfPlatBaru;
     // End of variables declaration//GEN-END:variables

@@ -11,16 +11,17 @@
 public class Pengemudi extends Orang {
     private String platNomor;
     private String idPengemudi;
-    private String statusPengemudi = "Available";
+    private String statusPengemudi;
     private String passPengemudi;
     private static int sid = 1;
 
-    public Pengemudi(String platNomor, String nama, String passPengemudi) {
+    public Pengemudi(String id, String nama, String platNomor,  String passPengemudi) {
         super(nama);
-        this.idPengemudi = "T-"+sid;
+        this.idPengemudi = id;
         sid++;
         this.platNomor = platNomor;
         this.passPengemudi = passPengemudi;
+        statusPengemudi = "Available";
     }
 
     public String getPlatNomor() {
@@ -46,5 +47,13 @@ public class Pengemudi extends Orang {
     public void displayPengemudi(){
         System.out.println("Nama: "+this.getNama());
         System.out.println("Plat Nomor: "+this.getPlatNomor());
+    }
+
+    public String getPassPengemudi() {
+        return passPengemudi;
+    }
+
+    public void setPassPengemudi(String passPengemudi) {
+        this.passPengemudi = passPengemudi;
     }
 }
