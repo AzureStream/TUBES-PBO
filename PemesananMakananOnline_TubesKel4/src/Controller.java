@@ -62,14 +62,20 @@ public class Controller extends MouseAdapter implements ActionListener {
             }
             restoLogin.resetView();
             restoLogin.setRestoIdRegister(Restoran.getSid());
-        } 
+        }
         if (source.equals(restoLogin.getBtnLoginResto())) {
-            String id = restoLogin.getRestoIdLogin();
-            String pass = restoLogin.getPassRestoLogin();
-            if (model.searchResto(id, pass)) {
-                restoHome.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "ID/Password salah");
+            Restoran r = null;
+            try {
+                String id = restoLogin.getRestoIdLogin();
+                String pass = restoLogin.getPassRestoLogin();
+                r = new Restoran(id, pass);
+                if (model.cekResto(r,id,pass)) {
+                    restoHome.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "ID/Password salah");
+                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
 
