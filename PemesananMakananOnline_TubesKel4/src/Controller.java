@@ -48,7 +48,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             driverLogin.setVisible(true);
             home.dispose();
         }
-        
+
         //Pelanggan Home
         // ---- Under Construction ----
         
@@ -75,7 +75,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             try {
                 String id = restoLogin.getRestoIdLogin();
                 String pass = restoLogin.getPassRestoLogin();
-                if (!model.cekResto(id,pass)) {
+                if (!model.cekResto(id, pass)) {
                     restoHome.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
@@ -84,10 +84,14 @@ public class Controller extends MouseAdapter implements ActionListener {
                 System.out.println(e);
             }
         }
+        if (source.equals(restoLogin.getBtnHome())) {
+            restoLogin.dispose();
+            home.setVisible(true);
+        }
         // Button RestoHome
         if (source.equals(restoHome.getBtnCreateMenu())) {
+            String idResto = restoLogin.getRestoIdLogin();
             try {
-                String idResto = restoLogin.getRestoIdLogin();
                 String nama = restoHome.getNamaMenu();
                 int harga = restoHome.getHargaMenu();
                 model.createMenu(idResto, nama, harga);
@@ -95,27 +99,56 @@ public class Controller extends MouseAdapter implements ActionListener {
                 System.out.println(e);
             }
             restoHome.resetView();
-//            restoHome.setListMenu(model.getNamaMenu(r));
             JOptionPane.showMessageDialog(null, "Menu berhasil ditambahkan");
+            restoHome.setListMenu(model.getNamaMenu(idResto));
+        }
+        if (source.equals(restoHome.getBtnDeleteMenu())) {
+            String idResto = restoLogin.getRestoIdLogin();
+            try {
+                String nama = restoHome.getNamaMenu();
+                int harga = restoHome.getHargaMenu();
+                model.deleteMenu(idResto, nama);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            restoHome.resetView();
+            JOptionPane.showMessageDialog(null, "Menu berhasil dihapus");
+        }
+        if (source.equals(restoHome.getBtnUpdateMenu())) {
+            String idResto = restoLogin.getRestoIdLogin();
+            try {
+                String nama = restoHome.getNamaMenu();
+                int harga = restoHome.getHargaMenu();
+                model.updateMenu(idResto, nama, harga);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            restoHome.resetView();
+            JOptionPane.showMessageDialog(null, "Harga menu berhasil diupdate");
+        }
+        if (source.equals(restoHome.getBtnHome())) {
+            restoLogin.dispose();
+            restoHome.dispose();
+            home.setVisible(true);
         }
 
     }
-    
+
     public void mousePressed(MouseEvent me) {
         Object source = me.getSource();
-        
+
         //Pelanggan Home/Pesan/List Resto
         if (source.equals(pelangganHome.getListRestoran())) {
             String id = pelangganHome.getSelectedRestoran();
             pelangganHome.setListMenu(model.getRestoran(id).getListMenu());
         }
-        
+
         //Pelanggan Home/History
         if (source.equals(pelangganHome.getListHistory())) {
             String id = pelangganHome.getSelectedHistory();
             pelangganHome.setTextDetailHistory(model.getPesanan(id).displayPesanan());
         }
-        
+
         //Pengemudi Home/History
         if (source.equals(driverHome.getListHistory())) {
             String id = driverHome.getSelectedHistory();

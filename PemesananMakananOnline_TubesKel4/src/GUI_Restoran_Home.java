@@ -44,6 +44,7 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         listNamaMenu = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         taDetailMenu = new javax.swing.JTextArea();
+        btnHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,6 +128,8 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         taDetailMenu.setRows(5);
         jScrollPane2.setViewportView(taDetailMenu);
 
+        btnHome.setText("Home");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,20 +137,29 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(btnHome)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnHome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -180,6 +192,10 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         return btnUpdateMenu;
     }
     
+    public JButton getBtnHome() {
+        return btnHome;
+    }
+    
     public void setListMenu(String[] listMenu){
         listNamaMenu.setListData(listMenu);
     }
@@ -192,6 +208,7 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         btnCreateMenu.addActionListener(al);
         btnDeleteMenu.addActionListener(al);
         btnUpdateMenu.addActionListener(al);
+        btnHome.addActionListener(al);
     }
     
     public void addMouseAdapter(MouseAdapter ma){
@@ -206,6 +223,7 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateMenu;
     private javax.swing.JButton btnDeleteMenu;
+    private javax.swing.JButton btnHome;
     private javax.swing.JButton btnUpdateMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

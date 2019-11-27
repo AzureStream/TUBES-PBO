@@ -213,9 +213,9 @@ public class Database {
     }
 
     //Menu
-    public void saveMenu(Restoran r, Menu m) {
+    public void saveMenu(String id, String nama, int harga) {
         try {
-            String query = "insert into menu values('" + r.getIdRestoran() + "','" + m.getNamaMenu() + "','" + m.getHargaMenu() + "');";
+            String query = "insert into menu values('" + id + "','" + nama + "','" + harga + "');";
             Statement s = con.createStatement();
             s.execute(query);
             System.out.println("Saving success");
@@ -224,10 +224,32 @@ public class Database {
         }
     }
     
+    public void deleteMenu(String id, String nama) {
+        try {
+            String query = "delete from menu where idRestoran='"+id+"' and namaMenu='"+nama+"';";
+            Statement s = con.createStatement();
+            s.execute(query);
+            System.out.println("Delete success");
+        } catch (SQLException se) {
+            System.out.println("Delete error");
+        }
+    }
+    
+    public void updateMenu(String id, String nama, int harga) {
+        try {
+            String query = "update menu set hargaMenu="+harga+" where idRestoran='"+id+"' and namaMenu='"+nama+"';";
+            Statement s = con.createStatement();
+            s.execute(query);
+            System.out.println("Update success");
+        } catch (SQLException se) {
+            System.out.println("Update error");
+        }
+    }
+    
     public ArrayList<Menu> loadAllMenu(Restoran r){
         try {
             ArrayList<Menu> menu = new ArrayList();
-            String query = "select namaMenu from restoran where idRestoran='" + r.getIdRestoran() + "';";
+            String query = "select namaMenu, hargaMenu from restoran where idRestoran='" + r.getIdRestoran() + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
             Menu m = null;

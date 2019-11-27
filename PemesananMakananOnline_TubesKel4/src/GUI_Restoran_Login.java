@@ -43,6 +43,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         pfPasswordRestoRegister = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         taResto = new javax.swing.JTextArea();
+        btnHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -81,6 +82,13 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         taResto.setRows(5);
         jScrollPane1.setViewportView(taResto);
 
+        btnHome.setText("Home");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Resto_RegisterLayout = new javax.swing.GroupLayout(Resto_Register);
         Resto_Register.setLayout(Resto_RegisterLayout);
         Resto_RegisterLayout.setHorizontalGroup(
@@ -102,11 +110,13 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
                         .addComponent(tfIDRestoranRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(161, 161, 161))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Resto_RegisterLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(110, 110, 110)
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDaftarResto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(129, 129, 129))
             .addGroup(Resto_RegisterLayout.createSequentialGroup()
-                .addGap(182, 182, 182)
+                .addGap(213, 213, 213)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -126,10 +136,12 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pfPasswordRestoRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnDaftarResto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDaftarResto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Register", Resto_Register);
@@ -172,7 +184,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
                     .addComponent(pfPasswordRestoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addComponent(btnRestoLogin)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Login", jPanel1);
@@ -205,6 +217,10 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnDaftarRestoActionPerformed
 
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -236,6 +252,10 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         return btnRestoLogin;
     }
 
+    public JButton getBtnHome() {
+        return btnHome;
+    }
+
     public JButton getBtnDaftarResto() {
         return btnDaftarResto;
     }
@@ -243,6 +263,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
     public void addActionListener(ActionListener al) {
         btnDaftarResto.addActionListener(al);
         btnRestoLogin.addActionListener(al);
+        btnHome.addActionListener(al);
     }
 
     public void resetView() {
@@ -257,6 +278,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Resto_Register;
     private javax.swing.JButton btnDaftarResto;
+    private javax.swing.JButton btnHome;
     private javax.swing.JButton btnRestoLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

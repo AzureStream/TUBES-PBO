@@ -111,6 +111,7 @@ public class Aplikasi {
     //Restoran
     public void addRestoran(Restoran r){
         db.saveResto(r);
+        daftarRestoran.add(r);
     }
     
     public void loadResto(){
@@ -174,15 +175,23 @@ public class Aplikasi {
     }
     
     //Menu
-    public String[] getNamaMenu(Restoran r){
+    public String[] getNamaMenu(String idResto){
+        Restoran r = getRestoran(idResto);
         String[] listMenu = new String[r.getDaftarMenu().size()];
         for (int i = 0; i < r.getDaftarMenu().size(); i++) {
             listMenu[i] = r.getDaftarMenu().get(i).getNamaMenu();
         }
         return listMenu;
+//        Restoran r = db.loadOneRestoranById(idResto);
+//        String[] listMenu = new String[db.loadAllMenu(r).size()];
+//        for (int i = 0; i < db.loadAllMenu(r).size(); i++) {
+//            listMenu[i] = db.loadAllMenu(r).get(i).getNamaMenu();
+//        }
+//        return listMenu;
     }
     
     public void createMenu(String idRestoran, String namaMenu, int hargaMenu){
+        db.saveMenu(idRestoran, namaMenu, hargaMenu);
         Restoran r = getRestoran(idRestoran);
         r.createMenu(namaMenu, hargaMenu);
     }
@@ -194,14 +203,15 @@ public class Aplikasi {
         }
     }
     
-    public void updateMenu(String idRestoran, String namaMenuLama, String namaMenuBaru, int hargaMenu){
+    public void updateMenu(String idRestoran, String namaMenu, int hargaMenu){
+        db.updateMenu(idRestoran, namaMenu, hargaMenu);
         Restoran r = getRestoran(idRestoran);
-        Menu m = searchMenuRestoran(r.getIdRestoran(), namaMenuLama);
-        m.setNamaMenu(namaMenuBaru);
+        Menu m = searchMenuRestoran(r.getIdRestoran(), namaMenu);
         m.setHargaMenu(hargaMenu);
     }
     
     public void deleteMenu(String idRestoran, String namaMenu){
+        db.deleteMenu(idRestoran, namaMenu);
         Restoran r = getRestoran(idRestoran);
         r.getDaftarMenu().remove(searchMenuRestoran(r.getIdRestoran(), namaMenu));
     }
