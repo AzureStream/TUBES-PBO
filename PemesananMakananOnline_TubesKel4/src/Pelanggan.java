@@ -49,4 +49,8 @@ public class Pelanggan extends Orang {
     public void setPassPelanggan(String passPelanggan) {
         this.passPelanggan = passPelanggan;
     }
+
+    public static int getSid() {
+        return sid;
+    }
 }

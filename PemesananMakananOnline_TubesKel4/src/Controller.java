@@ -49,8 +49,85 @@ public class Controller extends MouseAdapter implements ActionListener {
             home.dispose();
         }
 
+        //Pelanggan Register/Login
+        //Register
+        if (source.equals(pelangganLogin.getBtnDaftarPelanggan())) {
+            try {
+                String id = pelangganLogin.getIdRegister();
+                String nama = pelangganLogin.getNama();
+                String pass = pelangganLogin.getPassRegister();
+                Pelanggan c = new Pelanggan(id,nama,pass);
+                model.addPelanggan(c);
+                pelangganLogin.setTextRegister("Pembuatan akun berhasil.\n"
+                        + "Terimakasih telah mendaftar "+nama+".");
+            } catch(Exception e) {
+                pelangganLogin.setTextRegister("Pembuatan akun gagal.");
+            }
+            pelangganLogin.resetView();
+            pelangganLogin.setIdRegister(Pelanggan.getSid());
+        }
+        //Login
+        if (source.equals(pelangganLogin.getBtnLoginPelanggan())) {
+            Pelanggan c = null;
+            try {
+                String id = pelangganLogin.getIdLogin();
+                String pass = pelangganLogin.getPassLogin();
+                if (!model.cekLoginPelanggan(id,pass)) {
+                    pelangganHome.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "ID/Password salah");
+                }
+            } catch(Exception e) {
+                System.out.println(e);
+            }
+        }
+        //Kembali
+        if (source.equals(pelangganLogin.getBtnKembali())) {
+            pelangganLogin.dispose();
+            home.setVisible(true);
+        }
+        
         //Pelanggan Home
         // ---- Under Construction ----
+        
+        //Pengemudi Register/Login
+        //Register
+        if (source.equals(driverLogin.getBtnDaftar())) {
+            try {
+                String id = driverLogin.getIdRegister();
+                String nama = driverLogin.getNama();
+                String plat = driverLogin.getPlatNomor();
+                String pass = driverLogin.getPassRegister();
+                Pengemudi d = new Pengemudi(id,nama,plat,pass);
+                model.addPengemudi(d);
+                driverLogin.setTextRegister("Pembuatan akun berhasil.\n"
+                        + "Terimakasih telah mendaftar "+nama+".");
+            } catch(Exception e) {
+                driverLogin.setTextRegister("Pembuatan akun gagal.");
+            }
+            driverLogin.resetView();
+            driverLogin.setIdRegister(Pengemudi.getSid());
+        }
+        //Login
+        if (source.equals(driverLogin.getBtnLogin())) {
+            Pengemudi d = null;
+            try {
+                String id = driverLogin.getIdLogin();
+                String pass = driverLogin.getPassLogin();
+                if (!model.cekLoginPengemudi(id,pass)) {
+                    driverHome.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "ID/Password salah");
+                }
+            } catch(Exception e) {
+                System.out.println(e);
+            }
+        }
+        //Kembali
+        if (source.equals(driverLogin.getBtnKembali())) {
+            driverLogin.dispose();
+            home.setVisible(true);
+        }
         
         //Pengemudi Home
         // ---- Under Construction ----

@@ -62,7 +62,8 @@ public class Aplikasi {
     
     //Pengemudi
     public void addPengemudi(Pengemudi p){
-        this.daftarPengemudi.add(p);
+        db.savePengemud(p);
+        daftarPengemudi.add(p);
     }
     
     public Pengemudi getPengemudi(String idPengemudi){
@@ -94,8 +95,16 @@ public class Aplikasi {
         }
     }
     
+    public boolean cekLoginPengemudi(String id, String pass) {
+        if (db.cekPengemudi(id, pass) != null){
+            return true;
+        }
+        return false;
+    }
+    
     //Pelanggan
     public void addPelanggan(Pelanggan c){
+        db.savePelanggan(c);
         daftarPelanggan.add(c);
     }
     
@@ -106,6 +115,13 @@ public class Aplikasi {
             }
         }
         return null;
+    }
+    
+    public boolean cekLoginPelanggan(String id, String pass) {
+        if (db.cekPelanggan(id, pass) != null){
+            return true;
+        }
+        return false;
     }
     
     //Restoran

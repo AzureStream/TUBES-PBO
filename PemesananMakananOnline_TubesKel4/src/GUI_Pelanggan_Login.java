@@ -41,6 +41,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taPelanggan = new javax.swing.JTextArea();
         btnDaftarPelanggan = new javax.swing.JButton();
+        btnKembali = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -76,6 +77,8 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
 
         btnDaftarPelanggan.setText("Daftar");
 
+        btnKembali.setText("Kembali");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -83,22 +86,25 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(147, 147, 147)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDaftarPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(140, 140, 140))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(83, 83, 83)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfIDPelangganRegister)
-                            .addComponent(tfNamaPelangganRegister)
-                            .addComponent(pfPasswordPelangganRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))))
-                .addContainerGap(157, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDaftarPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGap(83, 83, 83)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfIDPelangganRegister)
+                                    .addComponent(tfNamaPelangganRegister)
+                                    .addComponent(pfPasswordPelangganRegister, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))))
+                        .addContainerGap(157, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +122,9 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(pfPasswordPelangganRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(btnDaftarPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDaftarPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
@@ -235,6 +243,10 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         return btnLoginPelanggan;
     }
     
+    public JButton getBtnKembali() {
+        return btnKembali;
+    }
+    
     //TextArea Setter
     public void setTextRegister(String s) {
         taPelanggan.setText(s);
@@ -244,10 +256,17 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
     public void addActionListener(ActionListener x) {
         btnDaftarPelanggan.addActionListener(x);
         btnLoginPelanggan.addActionListener(x);
+        btnKembali.addActionListener(x);
+    }
+    
+    public void resetView() {
+        tfNamaPelangganRegister.setText("");
+        pfPasswordPelangganRegister.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaftarPelanggan;
+    private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnLoginPelanggan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

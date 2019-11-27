@@ -56,4 +56,8 @@ public class Pengemudi extends Orang {
     public void setPassPengemudi(String passPengemudi) {
         this.passPengemudi = passPengemudi;
     }
+
+    public static int getSid() {
+        return sid;
+    }
 }

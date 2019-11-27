@@ -59,6 +59,8 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         listHistoryPengemudi = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         taHistoryPengemudi = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -243,6 +245,27 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("History", jPanel2);
 
+        btnLogout.setText("Logout");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Logout", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -293,6 +316,10 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         return btnFinish;
     }
     
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+    
     //List Section
     public void setListHistory(String[] listHistory) {
         listHistoryPengemudi.setListData(listHistory);
@@ -326,6 +353,7 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
     //Misc
     public void addActioinListener(ActionListener x) {
         btnSimpan.addActionListener(x);
+        btnLogout.addActionListener(x);
     }
     
     public void addMouseAdapter(MouseAdapter x) {
@@ -339,6 +367,7 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFinish;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnOtw;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JLabel jLabel1;
@@ -353,6 +382,7 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

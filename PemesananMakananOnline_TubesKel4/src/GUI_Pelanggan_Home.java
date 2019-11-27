@@ -54,6 +54,8 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         listHistoryPelanggan = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         taHistoryPelanggan = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -217,13 +219,34 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("History", jPanel3);
 
+        btnLogout.setText("Logout");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(274, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(222, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Logout", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -252,6 +275,10 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
     
     public JButton getBtnAddKeranjang() {
         return btnAddKeranjang;
+    }
+    
+    public JButton getBtnLogout() {
+        return btnLogout;
     }
     
     //List Section
@@ -308,6 +335,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
     public void addActionListener(ActionListener x) {
         btnPesan.addActionListener(x);
         btnAddKeranjang.addActionListener(x);
+        btnLogout.addActionListener(x);
     }
     
     public void addMouseAdapter(MouseAdapter x) {
@@ -319,6 +347,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddKeranjang;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPesan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -329,6 +358,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
