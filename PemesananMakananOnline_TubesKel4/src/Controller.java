@@ -74,6 +74,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String pass = pelangganLogin.getPassLogin();
                 if (!model.cekLoginPelanggan(id,pass)) {
                     pelangganHome.setVisible(true);
+                    model.setIdLogin(id);
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
@@ -88,7 +89,17 @@ public class Controller extends MouseAdapter implements ActionListener {
         }
         
         //Pelanggan Home
-        // ---- Under Construction ----
+        //Pesan
+        
+        //History
+        //It's in Mouse Adapter
+        
+        //Logout
+        if (source.equals(pelangganHome.getBtnLogout())) {
+            model.setIdLogin("");
+            pelangganHome.dispose();
+            pelangganHome.setVisible(true);
+        }
         
         //Pengemudi Register/Login
         //Register
@@ -116,6 +127,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String pass = driverLogin.getPassLogin();
                 if (!model.cekLoginPengemudi(id,pass)) {
                     driverHome.setVisible(true);
+                    model.setIdLogin(id);
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
@@ -130,7 +142,26 @@ public class Controller extends MouseAdapter implements ActionListener {
         }
         
         //Pengemudi Home
-        // ---- Under Construction ----
+        //Ambil Pesanan
+        
+        //Edit Profil
+        if (source.equals(driverHome.getBtnSimpan())) {
+            String id = model.getIdLogin();
+            String nama = driverHome.getNamaBaru();
+            String pass = driverHome.getPlatBaru();
+            //Start Updating here       ----        Method doesn't exist yet
+            driverHome.setTextEditProfil("Profil berhasil diperbarui");
+        }
+        
+        //History
+        //It's in Mouse Adapter
+        
+        // Logout
+        if (source.equals(driverHome.getBtnLogout())) {
+            model.setIdLogin("");
+            driverHome.dispose();
+            driverLogin.setVisible(true);
+        }
         
         // Button RestoLogin
         if (source.equals(restoLogin.getBtnDaftarResto())) {
@@ -154,6 +185,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String pass = restoLogin.getPassRestoLogin();
                 if (!model.cekResto(id, pass)) {
                     restoHome.setVisible(true);
+                    model.setIdLogin(id);
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
@@ -205,8 +237,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         }
         if (source.equals(restoHome.getBtnHome())) {
             restoLogin.dispose();
-            restoHome.dispose();
-            home.setVisible(true);
+            restoHome.setVisible(true);
         }
 
     }

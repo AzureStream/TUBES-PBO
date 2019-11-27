@@ -26,6 +26,14 @@ public class Aplikasi {
         db=new Database();
         db.connect();
     }
+
+    public void setIdLogin(String idLogin) {
+        this.idLogin = idLogin;
+    }
+
+    public String getIdLogin() {
+        return idLogin;
+    }
     
     //List
     public String[] getDaftarPelanggan() {
@@ -75,24 +83,10 @@ public class Aplikasi {
         return null;
     }
     
-    public void updatePengemudi(String idPengemudi, String nama, String platNomor){
-        Pengemudi p = getPengemudi(idPengemudi);
+    public void updatePengemudi(String idPengemudi, String nama, String platNomor){     //This method is useless
+        Pengemudi p = getPengemudi(idPengemudi);                                        //Needs Fixing
         p.setNama(nama);
         p.setPlatNomor(platNomor);
-    }
-    
-    public Pengemudi searchAvailPengemudi(){
-        Pengemudi p = null;
-        int i = 0;
-        do {
-            p = daftarPengemudi.get(i);
-            i++;
-        } while(!p.getStatusPengemudi().equals("Available") && i<daftarPengemudi.size());
-        if(p.getStatusPengemudi().equals("Available")){
-            return p;
-        } else {
-            return null;
-        }
     }
     
     public boolean cekLoginPengemudi(String id, String pass) {
@@ -188,6 +182,20 @@ public class Aplikasi {
             }
         }
         return null;
+    }
+    
+    public Pengemudi searchAvailPengemudi(){
+        Pengemudi p = null;
+        int i = 0;
+        do {
+            p = daftarPengemudi.get(i);
+            i++;
+        } while(!p.getStatusPengemudi().equals("Available") && i<daftarPengemudi.size());
+        if(p.getStatusPengemudi().equals("Available")){
+            return p;
+        } else {
+            return null;
+        }
     }
     
     //Menu

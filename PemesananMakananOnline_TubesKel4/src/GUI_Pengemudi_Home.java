@@ -299,7 +299,7 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         return tfNamaBaru.getText();
     }
     
-    public String getPassBaru() {
+    public String getPlatBaru() {
         return tfPlatBaru.getText();
     }
     

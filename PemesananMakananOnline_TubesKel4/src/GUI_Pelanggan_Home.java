@@ -310,7 +310,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         return listMenu;
     }
     
-    public String getSelectedMenud() {
+    public String getSelectedMenu() {
         return listMenu.getSelectedValue();
     }
     
