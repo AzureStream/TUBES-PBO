@@ -78,7 +78,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     pelangganHome.setVisible(true);
                     model.setIdLogin(id);
                     pelangganHome.setListRestoran(model.getDaftarRestoran());
-                    //Need to add setListHistory here -- Require database method
+                    pelangganHome.setListHistory(model.getHistoryPelanggan());
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
@@ -94,14 +94,15 @@ public class Controller extends MouseAdapter implements ActionListener {
         
         //Pelanggan Home
         //Pesan
-//        if (source.equals(pelangganHome.getBtnAddKeranjang())) {
-//            List<Menu> keranjang = new ArrayList<>();
-//            keranjang.add((Menu) pelangganHome.getListMenu().getSelectedValue());
-//        }
-//        
-//        if (source.equals(pelangganHome.getBtnPesan())) {
-//            
-//        }
+        if (source.equals(pelangganHome.getBtnAddKeranjang())) {
+            List<Menu> keranjang = new ArrayList<>();
+            keranjang.add((Menu) pelangganHome.getListMenu().getSelectedValue());
+        }
+        
+        if (source.equals(pelangganHome.getBtnPesan())) {
+            
+            
+        }
         
         //History
         //It's in Mouse Adapter
@@ -140,6 +141,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 if (!model.cekLoginPengemudi(id,pass)) {
                     driverHome.setVisible(true);
                     model.setIdLogin(id);
+                    driverHome.setListHistory(model.getHistoryPengemudi());
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }

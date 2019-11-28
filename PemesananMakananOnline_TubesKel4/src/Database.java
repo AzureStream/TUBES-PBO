@@ -83,17 +83,18 @@ public class Database {
         }
     }
     
-    public void loadHistoryPelanggan(String id) { //Under Construction
+    public ArrayList loadHistoryPelanggan(String id) {
         try {
-            ArrayList<Pesanan> history = new ArrayList<>();
+            ArrayList history = new ArrayList<>();
             String query = "select idOrder from pesanan where idPelanggan='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
             while(rs.next()) {
-                
+                history.add(rs.getString(1));
             }
+            return history;
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
     }
     
@@ -172,6 +173,21 @@ public class Database {
             rs = s.executeQuery(query);
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public ArrayList loadHistoryPengemudi(String id) {
+        try {
+            ArrayList history = new ArrayList<>();
+            String query = "select idOrder from pesanan where idPengemudi='" + id + "';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            while(rs.next()) {
+                history.add(rs.getString(1));
+            }
+            return history;
+        } catch (SQLException ex) {
+            return null;
         }
     }
 

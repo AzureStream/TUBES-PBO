@@ -94,6 +94,16 @@ public class Aplikasi {
         return false;
     }
     
+    public String[] getHistoryPengemudi() {
+        ArrayList x = db.loadHistoryPengemudi(idLogin);
+        String[] history = new String[x.size()];
+        int i = 0;
+        for (Object o:x) {
+            history[i++] = (String) o;
+        }
+        return history;
+    }
+    
     //Pelanggan
     public void addPelanggan(Pelanggan c){
         db.savePelanggan(c);
@@ -114,6 +124,16 @@ public class Aplikasi {
             return true;
         }
         return false;
+    }
+    
+    public String[] getHistoryPelanggan() {
+        ArrayList x = db.loadHistoryPelanggan(idLogin);
+        String[] history = new String[x.size()];
+        int i = 0;
+        for (Object o:x) {
+            history[i++] = (String) o;
+        }
+        return history;
     }
     
     //Restoran
