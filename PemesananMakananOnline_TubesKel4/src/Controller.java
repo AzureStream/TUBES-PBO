@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Controller extends MouseAdapter implements ActionListener {
@@ -75,6 +77,8 @@ public class Controller extends MouseAdapter implements ActionListener {
                 if (!model.cekLoginPelanggan(id,pass)) {
                     pelangganHome.setVisible(true);
                     model.setIdLogin(id);
+                    pelangganHome.setListRestoran(model.getDaftarRestoran());
+                    //Need to add setListHistory here -- Require database method
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
@@ -90,6 +94,14 @@ public class Controller extends MouseAdapter implements ActionListener {
         
         //Pelanggan Home
         //Pesan
+//        if (source.equals(pelangganHome.getBtnAddKeranjang())) {
+//            List<Menu> keranjang = new ArrayList<>();
+//            keranjang.add((Menu) pelangganHome.getListMenu().getSelectedValue());
+//        }
+//        
+//        if (source.equals(pelangganHome.getBtnPesan())) {
+//            
+//        }
         
         //History
         //It's in Mouse Adapter
@@ -148,8 +160,8 @@ public class Controller extends MouseAdapter implements ActionListener {
         if (source.equals(driverHome.getBtnSimpan())) {
             String id = model.getIdLogin();
             String nama = driverHome.getNamaBaru();
-            String pass = driverHome.getPlatBaru();
-            //Start Updating here       ----        Method doesn't exist yet
+            String plat = driverHome.getPlatBaru();
+            model.updatePengemudi(id, nama, plat);
             driverHome.setTextEditProfil("Profil berhasil diperbarui");
         }
         

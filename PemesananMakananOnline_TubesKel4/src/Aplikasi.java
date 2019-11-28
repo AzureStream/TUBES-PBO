@@ -84,9 +84,7 @@ public class Aplikasi {
     }
     
     public void updatePengemudi(String idPengemudi, String nama, String platNomor){     //This method is useless
-        Pengemudi p = getPengemudi(idPengemudi);                                        //Needs Fixing
-        p.setNama(nama);
-        p.setPlatNomor(platNomor);
+        db.updateProfil(idPengemudi, nama, platNomor);
     }
     
     public boolean cekLoginPengemudi(String id, String pass) {

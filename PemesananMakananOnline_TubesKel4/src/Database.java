@@ -83,6 +83,20 @@ public class Database {
         }
     }
     
+    public void loadHistoryPelanggan(String id) { //Under Construction
+        try {
+            ArrayList<Pesanan> history = new ArrayList<>();
+            String query = "select idOrder from pesanan where idPelanggan='" + id + "';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            while(rs.next()) {
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     //Pengemudi
     public void savePengemud(Pengemudi d) {
         try {
@@ -146,6 +160,18 @@ public class Database {
             return d;
         } catch (SQLException se) {
             return null;
+        }
+    }
+    
+    public void updateProfil(String id, String nama, String plat) {
+        try {
+            String query = "update pengemudi set namaPengemudi='" + nama + "' where idPengemudi='"+ id + "';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            query = "update pengemudi set platNomor='" + plat + "' where idPengemudi='"+ id + "';";
+            rs = s.executeQuery(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
