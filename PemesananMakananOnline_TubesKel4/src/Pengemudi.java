@@ -15,7 +15,7 @@ public class Pengemudi extends Orang {
     private String passPengemudi;
     private static int sid = 1;
 
-    public Pengemudi(String id, String nama, String platNomor, String passPengemudi) {
+    public Pengemudi(String id, String nama, String passPengemudi, String platNomor) {
         super(nama);
         this.idPengemudi = id;
         sid++;
