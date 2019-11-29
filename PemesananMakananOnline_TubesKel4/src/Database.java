@@ -44,13 +44,14 @@ public class Database {
                 String name = rs.getString(2);
                 String pass = rs.getString(3);
                 c = new Pelanggan(id, name, pass);
+                pelanggan.add(c);
             }
             return pelanggan;
         } catch (SQLException ex) {
             return null;
         }
     }
-    
+
     public Pelanggan loadOnePelangganById(String id) {
         try {
             String query = "select * from pelanggan where idPelanggan ='" + id + "';";
@@ -67,7 +68,7 @@ public class Database {
             return null;
         }
     }
-    
+
     public Pelanggan cekPelanggan(String id, String pass) {
         try {
             String query = "select * from pelanggan where idPelanggan='" + id + "' and passPelanggan='" + pass + "';";
@@ -76,20 +77,20 @@ public class Database {
             String idN = rs.getString(1);
             String namaN = rs.getString(2);
             String passN = rs.getString(3);
-            Pelanggan c = new Pelanggan(idN,namaN,passN);
+            Pelanggan c = new Pelanggan(idN, namaN, passN);
             return c;
         } catch (SQLException se) {
             return null;
         }
     }
-    
+
     public ArrayList loadHistoryPelanggan(String id) {
         try {
             ArrayList history = new ArrayList<>();
             String query = "select idOrder from pesanan where idPelanggan='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            while(rs.next()) {
+            while (rs.next()) {
                 history.add(rs.getString(1));
             }
             return history;
@@ -97,11 +98,11 @@ public class Database {
             return null;
         }
     }
-    
+
     //Pengemudi
     public void savePengemud(Pengemudi d) {
         try {
-            String query = "insert into pengemudi values('" + d.getIdPengemudi()+ "','" + d.getNama() + "','" + d.getPlatNomor()+ "','" + d.getPassPengemudi() + "','"+d.getStatusPengemudi() + "');";
+            String query = "insert into pengemudi values('" + d.getIdPengemudi() + "','" + d.getNama() + "','" + d.getPassPengemudi() + "','" + d.getPlatNomor() + "','" + d.getStatusPengemudi() + "');";
             Statement s = con.createStatement();
             s.execute(query);
             System.out.println("Saving success");
@@ -122,14 +123,16 @@ public class Database {
                 String name = rs.getString(2);
                 String pass = rs.getString(3);
                 String plat = rs.getString(4);
-                d = new Pengemudi(id, name, plat, pass);
+                String status = rs.getString(5);
+                d = new Pengemudi(id, name, pass, plat, status);
+                pengemudi.add(d);
             }
             return pengemudi;
         } catch (SQLException ex) {
             return null;
         }
     }
-    
+
     public Pengemudi loadOnePengemudiById(String id) {
         try {
             String query = "select * from pengemudi where idPengemudi ='" + id + "';";
@@ -140,14 +143,15 @@ public class Database {
                 String name = rs.getString(2);
                 String pass = rs.getString(3);
                 String plat = rs.getString(4);
-                d = new Pengemudi(id, name, plat, pass);
+                String status = rs.getString(5);
+                d = new Pengemudi(id, name, pass, plat, status);
             }
             return d;
         } catch (SQLException se) {
             return null;
         }
     }
-    
+
     public Pengemudi cekPengemudi(String id, String pass) {
         try {
             String query = "select * from pengemudi where idPengemudi='" + id + "' and passPengemudi='" + pass + "';";
@@ -157,32 +161,33 @@ public class Database {
             String namaN = rs.getString(2);
             String passN = rs.getString(3);
             String platN = rs.getString(4);
-            Pengemudi d = new Pengemudi(idN,namaN,platN,passN);
+            String status = rs.getString(5);
+            Pengemudi d = new Pengemudi(idN, namaN, passN, platN, status);
             return d;
         } catch (SQLException se) {
             return null;
         }
     }
-    
+
     public void updateProfil(String id, String nama, String plat) {
         try {
-            String query = "update pengemudi set namaPengemudi='" + nama + "' where idPengemudi='"+ id + "';";
+            String query = "update pengemudi set namaPengemudi='" + nama + "' where idPengemudi='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            query = "update pengemudi set platNomor='" + plat + "' where idPengemudi='"+ id + "';";
+            query = "update pengemudi set platNomor='" + plat + "' where idPengemudi='" + id + "';";
             rs = s.executeQuery(query);
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public ArrayList loadHistoryPengemudi(String id) {
         try {
             ArrayList history = new ArrayList<>();
             String query = "select idOrder from pesanan where idPengemudi='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            while(rs.next()) {
+            while (rs.next()) {
                 history.add(rs.getString(1));
             }
             return history;
@@ -222,7 +227,7 @@ public class Database {
             return null;
         }
     }
-    
+
     public Restoran loadOneRestoranById(String id) {
         try {
             String query = "select * from restoran where idRestoran ='" + id + "';";
@@ -270,10 +275,10 @@ public class Database {
             System.out.println("Saving error");
         }
     }
-    
+
     public void deleteMenu(String id, String nama) {
         try {
-            String query = "delete from menu where idRestoran='"+id+"' and namaMenu='"+nama+"';";
+            String query = "delete from menu where idRestoran='" + id + "' and namaMenu='" + nama + "';";
             Statement s = con.createStatement();
             s.execute(query);
             System.out.println("Delete success");
@@ -281,10 +286,10 @@ public class Database {
             System.out.println("Delete error");
         }
     }
-    
+
     public void updateMenu(String id, String nama, int harga) {
         try {
-            String query = "update menu set hargaMenu="+harga+" where idRestoran='"+id+"' and namaMenu='"+nama+"';";
+            String query = "update menu set hargaMenu=" + harga + " where idRestoran='" + id + "' and namaMenu='" + nama + "';";
             Statement s = con.createStatement();
             s.execute(query);
             System.out.println("Update success");
@@ -292,17 +297,17 @@ public class Database {
             System.out.println("Update error");
         }
     }
-    
-    public ArrayList<Menu> loadAllMenu(String id){
+
+    public ArrayList<Menu> loadAllMenu(String id) {
         try {
             ArrayList<Menu> menu = new ArrayList();
             String query = "select namaMenu, hargaMenu from menu where idRestoran='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            while(rs.next()){
-                String name=rs.getString(1);
-                int harga=Integer.parseInt(rs.getString(2));
-                Menu m = new Menu(name,harga);
+            while (rs.next()) {
+                String name = rs.getString(1);
+                int harga = Integer.parseInt(rs.getString(2));
+                Menu m = new Menu(name, harga);
                 menu.add(m);
             }
             return menu;
@@ -310,7 +315,7 @@ public class Database {
             return null;
         }
     }
-    
+
     public Menu loadMenu(String id, String name) {
         try {
             String query = "select * from menu where idRestoran ='" + id + "' and namaMenu ='" + name + "';";
@@ -318,17 +323,28 @@ public class Database {
             ResultSet rs = s.executeQuery(query);
             Menu m = null;
             while (rs.next()) {
-                int harga = Integer.parseInt(rs.getString(2));
+                int harga = Integer.parseInt(rs.getString(3));
                 m = new Menu(name, harga);
-                m.displayMenu();
             }
             return m;
         } catch (SQLException se) {
             return null;
         }
     }
-    
+
     //Pesanan
+    public void savePesanan(String idPelanggan, Pesanan d) {
+        try {
+            String query = "insert into pesanan values('" + d.getIdOrder() + "','" + idPelanggan + "','" + d.getPengemudi().getIdPengemudi() + "','"
+                    + d.getRestoran().getIdRestoran() + "','" + d.getStatus() + "');";
+            Statement s = con.createStatement();
+            s.execute(query);
+            System.out.println("Saving success");
+        } catch (SQLException ex) {
+            System.out.println("Saving error");
+        }
+    }
+
     public Pesanan loadOnePesananById(String id) {
         try {
             String query = "select * from pesanan where idOrder ='" + id + "';";
@@ -336,21 +352,19 @@ public class Database {
             ResultSet rs = s.executeQuery(query);
             Pesanan o = null;
             while (rs.next()) {
-                String idOrder = rs.getString(1);
-                String idPelanggan = rs.getString(2);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
                 String statusOrder = rs.getString(5);
-                String namaMenu = rs.getString(6);
-                o = new Pesanan(loadOneRestoranById(idRestoran),loadOnePengemudiById(idPengemudi));
-                o.addMenu(new Menu(namaMenu,0));
+                o = new Pesanan(loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                o.setStatus(statusOrder);
+                o.addMenu(new Menu("namaMenu", 0));
             }
             return o;
         } catch (SQLException se) {
             return null;
         }
     }
-    
+
     public ArrayList<Pesanan> loadAllPesanan() {
         try {
             ArrayList<Pesanan> pesanan = new ArrayList();
@@ -359,18 +373,49 @@ public class Database {
             ResultSet rs = s.executeQuery(query);
             Pesanan o = null;
             while (rs.next()) {
-                String idOrder = rs.getString(1);
-                String idPelanggan = rs.getString(2);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
                 String statusOrder = rs.getString(5);
-                String namaMenu = rs.getString(6);
-                o = new Pesanan(loadOneRestoranById(idRestoran),loadOnePengemudiById(idPengemudi));
+                o = new Pesanan(loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                o.setStatus(statusOrder);
                 pesanan.add(o);
             }
             return pesanan;
         } catch (SQLException ex) {
             return null;
+        }
+    }
+
+    public ArrayList<Pengemudi> availablePengemudi() {
+        try {
+            ArrayList<Pengemudi> pengemudi = new ArrayList();
+            String query = "select * from pengemudi where statusPengemudi = 'Available';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String nama = rs.getString(2);
+                String pass = rs.getString(3);
+                String plat = rs.getString(4);
+                String status = rs.getString(5);
+                Pengemudi d = new Pengemudi(id, nama, pass, plat, status);
+                pengemudi.add(d);
+            }
+            return pengemudi;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+
+    //Relasi
+    public void saveRelasi(String id, String nama) {
+        try {
+            String query = "insert into relasi_pesanan_menu values('" + id + "','" + nama +"');";
+            Statement s = con.createStatement();
+            s.execute(query);
+            System.out.println("Saving success");
+        } catch (SQLException se) {
+            System.out.println("Saving error");
         }
     }
 }

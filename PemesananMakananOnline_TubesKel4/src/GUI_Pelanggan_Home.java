@@ -47,6 +47,9 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         listMenu = new javax.swing.JList<>();
         btnAddKeranjang = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        tfHarga = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -96,7 +99,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnPesan)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -110,6 +113,12 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         jScrollPane5.setViewportView(listMenu);
 
         btnAddKeranjang.setText("Tambah ke Keranjang");
+
+        jLabel6.setText("Harga");
+
+        tfHarga.setEditable(false);
+
+        jLabel7.setText("Rp.");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -129,7 +138,14 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tfHarga))
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAddKeranjang)))
@@ -144,9 +160,17 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5))
-                .addGap(18, 18, 18)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(42, 42, 42)))
                 .addComponent(btnAddKeranjang)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -290,6 +314,10 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         return listKeranjang;
     }
     
+    public void resetListKeranjang() {
+        listKeranjang.removeAll();
+    }
+    
     public void setListRestoran(String[] listRestoran) {
         this.listRestoran.setListData(listRestoran);
     }
@@ -331,6 +359,15 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         taHistoryPelanggan.setText(s);
     }
     
+    //TextField Section
+    public void setHarga(String s) {
+        tfHarga.setText(s);
+    }
+    
+    public String getHarga() {
+        return tfHarga.getText();
+    }
+    
     //Misc
     public void addActionListener(ActionListener x) {
         btnPesan.addActionListener(x);
@@ -354,6 +391,8 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -370,5 +409,6 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
     private javax.swing.JList<String> listMenu;
     private javax.swing.JList<String> listRestoran;
     private javax.swing.JTextArea taHistoryPelanggan;
+    private javax.swing.JTextField tfHarga;
     // End of variables declaration//GEN-END:variables
 }

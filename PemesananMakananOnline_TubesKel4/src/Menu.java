@@ -28,6 +28,11 @@ public class Menu {
     public int getHargaMenu() {
         return hargaMenu;
     }
+    
+    public String getHargaMenuAsString() {
+        String s = ""+hargaMenu;
+        return s;
+    }
 
     public void setHargaMenu(int hargaMenu) {
         this.hargaMenu = hargaMenu;

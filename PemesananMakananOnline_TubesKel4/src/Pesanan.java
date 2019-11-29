@@ -26,12 +26,26 @@ public class Pesanan {
         sid++;
     }
     
+    public Pesanan(String id, Restoran restoran, Pengemudi pengemudi) {
+        addPengemudi(pengemudi);
+        addRestoran(restoran);
+        idOrder = id;
+    }
+    
     public void addPengemudi(Pengemudi p){
         this.driver = p;
     }
     
+    public Pengemudi getPengemudi() {
+        return driver;
+    }
+    
     public void addRestoran(Restoran r){
         this.restoran = r;
+    }
+    
+    public Restoran getRestoran() {
+        return restoran;
     }
 
     public String getIdOrder() {
@@ -61,8 +75,8 @@ public class Pesanan {
             s += t+". "+menu.getNamaMenu()+"\t\tHarga Rp."+menu.getHargaMenu()+"\n";
             t++;
         }
-        s += "Driver yang mengantar: "+this.driver.getNama()+" ("+this.driver.getPlatNomor()+")";
-        s += "Status: "+getStatus();
+        s += "Driver yang mengantar: "+this.driver.getNama()+" ("+this.driver.getPlatNomor()+")  ";
+        s += "  Status: "+getStatus();
         
         return s;
     }

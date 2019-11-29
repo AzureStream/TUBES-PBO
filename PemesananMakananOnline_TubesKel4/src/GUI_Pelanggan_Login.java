@@ -48,6 +48,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         pfPasswordPelangganLogin = new javax.swing.JPasswordField();
         tfIDPelangganLogin = new javax.swing.JTextField();
         btnLoginPelanggan = new javax.swing.JButton();
+        btnKembaliLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,20 +139,27 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
 
         btnLoginPelanggan.setText("Login");
 
+        btnKembaliLogin.setText("Kembali");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(btnKembaliLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pfPasswordPelangganLogin)
                     .addComponent(tfIDPelangganLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLoginPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,7 +177,9 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(pfPasswordPelangganLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
-                .addComponent(btnLoginPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnLoginPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(btnKembaliLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(280, Short.MAX_VALUE))
         );
 
@@ -247,6 +257,10 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         return btnKembali;
     }
     
+    public JButton getBtnKembaliLogin() {
+        return btnKembaliLogin;
+    }
+    
     //TextArea Setter
     public void setTextRegister(String s) {
         taPelanggan.setText(s);
@@ -257,6 +271,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         btnDaftarPelanggan.addActionListener(x);
         btnLoginPelanggan.addActionListener(x);
         btnKembali.addActionListener(x);
+        btnKembaliLogin.addActionListener(x);
     }
     
     public void resetView() {
@@ -267,6 +282,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaftarPelanggan;
     private javax.swing.JButton btnKembali;
+    private javax.swing.JButton btnKembaliLogin;
     private javax.swing.JButton btnLoginPelanggan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -15,13 +15,13 @@ public class Pengemudi extends Orang {
     private String passPengemudi;
     private static int sid = 1;
 
-    public Pengemudi(String id, String nama, String passPengemudi, String platNomor) {
+    public Pengemudi(String id, String nama, String passPengemudi, String platNomor, String status) {
         super(nama);
         this.idPengemudi = id;
         sid++;
         this.platNomor = platNomor;
         this.passPengemudi = passPengemudi;
-        this.statusPengemudi = "Available";
+        this.statusPengemudi = status;
     }
 
     public String getPlatNomor() {

@@ -17,7 +17,6 @@ public class Restoran {
     private String idRestoran;
     private String passRestoran;
     private List<Menu> daftarMenu;
-    private Database db;
     private int numMenu = 0;
     private static int sid=1;
 
@@ -102,7 +101,7 @@ public class Restoran {
         String[] menu = new String[daftarMenu.size()];
         int i = 0;
         for (Menu m: daftarMenu) {
-            menu[i] = m.getNamaMenu()+" : Rp"+m.getHargaMenu();
+            menu[i] = m.getNamaMenu();
             i++;
         }
         return menu;

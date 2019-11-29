@@ -152,7 +152,7 @@ public class Aplikasi {
     //Restoran
     public void addRestoran(Restoran r) {
         db.saveResto(r);
-        daftarRestoran.add(r);
+//        daftarRestoran.add(r);
     }
 
     public Restoran getRestoran(String idRestoran) {
@@ -213,6 +213,10 @@ public class Aplikasi {
     }
 
     //Pesanan
+    public void addPesanan(Pesanan o) {
+        db.savePesanan(idLogin, o);
+    }
+    
     public Pesanan getPesanan(String id) {
         for (Pesanan o : daftarPesanan) {
             if (o.getIdOrder() == id) {
@@ -221,23 +225,20 @@ public class Aplikasi {
         }
         return null;
     }
-
+    
     public Pengemudi searchAvailPengemudi() {
-        Pengemudi p = null;
-        int i = 0;
-        do {
-            p = daftarPengemudi.get(i);
-            i++;
-        } while (!p.getStatusPengemudi().equals("Available") && i < daftarPengemudi.size());
-        if (p.getStatusPengemudi().equals("Available")) {
-            return p;
-        } else {
-            return null;
-        }
+        ArrayList<Pengemudi> pengemudi = db.availablePengemudi();       
+        Pengemudi p = pengemudi.get(0);
+        p.setStatusPengemudi("Not available");
+        return p;
     }
 
     public Pesanan searchPesanan(String id) {
         return db.loadOnePesananById(id);
+    }
+    
+    public void addRelasi(String idOrder, String namaMenu) {
+        db.saveRelasi(idOrder, namaMenu);
     }
 
     //Menu
@@ -282,6 +283,11 @@ public class Aplikasi {
         Restoran r = getRestoran(idRestoran);
         r.getDaftarMenu().remove(searchMenuRestoran(r.getIdRestoran(), namaMenu));
     }
+    
+    public Menu searchMenu(String idRestoran, String namaMenu) {
+        Menu m = db.loadMenu(idRestoran, namaMenu);
+        return m;
+    }
 
     //ID Generator
     public int newIdPelanggan() {
@@ -312,6 +318,17 @@ public class Aplikasi {
         } else {
             String lastId = daftarRestoran.get(daftarRestoran.size() - 1).getIdRestoran();
             String lastNumId = lastId.substring(2);
+            int lastNoId = Integer.parseInt(lastNumId);
+            return lastNoId + 1;
+        }
+    }
+    
+    public int newIdOrder() {
+        if(daftarPesanan.size() == 0) {
+            return 1;
+        } else {
+            String lastId = daftarPesanan.get(daftarPesanan.size()-1).getIdOrder();
+            String lastNumId = lastId.substring(2,3);
             int lastNoId = Integer.parseInt(lastNumId);
             return lastNoId + 1;
         }
