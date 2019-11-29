@@ -281,10 +281,9 @@ public class Controller extends MouseAdapter implements ActionListener {
             JOptionPane.showMessageDialog(null, "Harga menu berhasil diupdate");
         }
         if (source.equals(restoHome.getBtnHome())) {
-            restoLogin.dispose();
             restoLogin.resetView();
             restoHome.dispose();
-            home.setVisible(true);
+            restoLogin.setVisible(true);
         }
 
     }
@@ -323,10 +322,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         if (source.equals(restoHome.getListNamaMenu())) {
             String id = restoLogin.getRestoIdLogin();
             restoHome.setListMenu(model.setMenuResto(id).getListMenu());
-            String nama = restoHome.getSelectedMenu();
-            Menu m = model.searchMenu(id, nama);
-            restoHome.setNamaMenu(m.getNamaMenu());
-            restoHome.setHargaMenu(m.getHargaMenuAsString());
         }
     }
 }
