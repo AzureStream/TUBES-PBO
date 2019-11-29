@@ -17,6 +17,7 @@ public class Restoran {
     private String idRestoran;
     private String passRestoran;
     private List<Menu> daftarMenu;
+    private Database db;
     private int numMenu = 0;
     private static int sid=1;
 
@@ -36,6 +37,7 @@ public class Restoran {
     public Restoran(String idRestoran, String passRestoran) {
         this.idRestoran = idRestoran;
         this.passRestoran = passRestoran;
+        daftarMenu = new ArrayList();
     }
     
     
@@ -78,6 +80,10 @@ public class Restoran {
 
     public List<Menu> getDaftarMenu() {
         return daftarMenu;
+    }
+    
+    public void setDaftarMenu(ArrayList<Menu> daftarMenu) {
+        this.daftarMenu = daftarMenu;
     }
     
     public Menu getMenu(int i) {

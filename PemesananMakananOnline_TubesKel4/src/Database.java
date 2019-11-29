@@ -293,19 +293,21 @@ public class Database {
         }
     }
     
-    public void loadAllMenu(String id){
+    public ArrayList<Menu> loadAllMenu(String id){
         try {
             ArrayList<Menu> menu = new ArrayList();
-            String query = "select namaMenu, hargaMenu from restoran where idRestoran='" + id + "';";
+            String query = "select namaMenu, hargaMenu from menu where idRestoran='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
             while(rs.next()){
                 String name=rs.getString(1);
                 int harga=Integer.parseInt(rs.getString(2));
-                System.out.println("\nNama Menu : "+name+"\nHarga Menu : Rp"+harga);
+                Menu m = new Menu(name,harga);
+                menu.add(m);
             }
+            return menu;
         } catch (SQLException se) {
-            System.out.println(se);
+            return null;
         }
     }
     

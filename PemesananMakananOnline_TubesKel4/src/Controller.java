@@ -88,6 +88,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String id = pelangganLogin.getIdLogin();
                 String pass = pelangganLogin.getPassLogin();
                 if (!model.cekLoginPelanggan(id,pass)) {
+                    pelangganLogin.dispose();
                     pelangganHome.setVisible(true);
                     model.setIdLogin(id);
                     pelangganHome.setListRestoran(model.getDaftarRestoran());
@@ -153,6 +154,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String id = driverLogin.getIdLogin();
                 String pass = driverLogin.getPassLogin();
                 if (!model.cekLoginPengemudi(id,pass)) {
+                    driverLogin.dispose();
                     driverHome.setVisible(true);
                     model.setIdLogin(id);
                     driverHome.setListHistory(model.getHistoryPengemudi());
@@ -280,7 +282,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         //Pelanggan Home/Pesan/List Resto
         if (source.equals(pelangganHome.getListRestoran())) {
             String id = pelangganHome.getSelectedRestoran();
-            pelangganHome.setListMenu(model.getRestoran(id).getListMenu());
+            pelangganHome.setListMenu(model.setMenuResto(id).getListMenu());
         }
 
         //Pelanggan Home/History
