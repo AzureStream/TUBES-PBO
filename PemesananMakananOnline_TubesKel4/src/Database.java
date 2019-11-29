@@ -340,10 +340,33 @@ public class Database {
                 String idRestoran = rs.getString(4);
                 String statusOrder = rs.getString(5);
                 String namaMenu = rs.getString(6);
-                System.out.println("");
+                o = new Pesanan(loadOneRestoranById(idRestoran),loadOnePengemudiById(idPengemudi));
             }
             return o;
         } catch (SQLException se) {
+            return null;
+        }
+    }
+    
+    public ArrayList<Pesanan> loadAllPesanan() {
+        try {
+            ArrayList<Pesanan> pesanan = new ArrayList();
+            String query = "select * from pesanan";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            Pesanan o = null;
+            while (rs.next()) {
+                String idOrder = rs.getString(1);
+                String idPelanggan = rs.getString(2);
+                String idPengemudi = rs.getString(3);
+                String idRestoran = rs.getString(4);
+                String statusOrder = rs.getString(5);
+                String namaMenu = rs.getString(6);
+                o = new Pesanan(loadOneRestoranById(idRestoran),loadOnePengemudiById(idPengemudi));
+                pesanan.add(o);
+            }
+            return pesanan;
+        } catch (SQLException ex) {
             return null;
         }
     }

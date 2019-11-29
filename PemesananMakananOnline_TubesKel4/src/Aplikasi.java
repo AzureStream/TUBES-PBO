@@ -20,9 +20,10 @@ public class Aplikasi {
     Database db;
 
     public Aplikasi() {
-        daftarPelanggan = new ArrayList();
-        daftarPengemudi = new ArrayList();
-        daftarRestoran = new ArrayList();
+        setDaftarPelanggan();
+        setDaftarPengemudi();
+        setDaftarRestoran();
+        setDaftarPesanan();
         db=new Database();
         db.connect();
     }
@@ -36,12 +37,20 @@ public class Aplikasi {
     }
     
     //List
+    public void setDaftarPelanggan() {
+        daftarPelanggan = db.loadAllPelanggan();
+    }
+    
     public String[] getDaftarPelanggan() {
         String[] listId = new String[daftarPelanggan.size()];
         for (int i=0; i<daftarPelanggan.size(); i++) {
             listId[i] = daftarPelanggan.get(i).getIdPelanggan();
         }
         return listId;    
+    }
+    
+    public void setDaftarPengemudi() {
+        daftarPengemudi = db.loadAllPengemudi();
     }
 
     public String[] getDaftarPengemudi() {
@@ -51,6 +60,10 @@ public class Aplikasi {
         }
         return listId;
     }
+    
+    public void setDaftarRestoran() {
+        daftarRestoran = db.loadAllResto();
+    }
 
     public String[] getDaftarRestoran() {
         String[] listId = new String[daftarRestoran.size()];
@@ -58,6 +71,10 @@ public class Aplikasi {
             listId[i] = daftarRestoran.get(i).getIdRestoran();
         }
         return listId;
+    }
+    
+    public void setDaftarPesanan() {
+        daftarPesanan = db.loadAllPesanan();
     }
 
     public String[] getDaftarPesanan() {
@@ -71,7 +88,6 @@ public class Aplikasi {
     //Pengemudi
     public void addPengemudi(Pengemudi p){
         db.savePengemud(p);
-        daftarPengemudi.add(p);
     }
     
     public Pengemudi getPengemudi(String idPengemudi){
@@ -107,7 +123,6 @@ public class Aplikasi {
     //Pelanggan
     public void addPelanggan(Pelanggan c){
         db.savePelanggan(c);
-        daftarPelanggan.add(c);
     }
     
     public Pelanggan getPelanggan(String idPelanggan){
