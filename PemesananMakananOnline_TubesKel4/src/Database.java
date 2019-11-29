@@ -331,6 +331,18 @@ public class Database {
             return null;
         }
     }
+    
+    public String loadOneMenu(String id, String name) {
+        try {
+            String query = "select namaMenu, hargaMenu from menu where idRestoran ='" + id + "' and namaMenu ='" + name + "';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            String m = "Nama Menu : "+rs.getString(1)+" \nHarga Menu : "+rs.getString(2);
+            return m;
+        } catch (SQLException se) {
+            return null;
+        }
+    }
 
     //Pesanan
     public void savePesanan(String idPelanggan, Pesanan d) {

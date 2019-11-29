@@ -78,6 +78,9 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
@@ -92,15 +95,12 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
                                 .addComponent(tfHargaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnCreateMenu)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnUpdateMenu)))
+                        .addComponent(btnCreateMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUpdateMenu)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDeleteMenu)
-                        .addGap(0, 11, Short.MAX_VALUE))))
+                        .addGap(0, 12, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,8 +120,8 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
                     .addComponent(btnUpdateMenu)
                     .addComponent(btnDeleteMenu))
                 .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         taDetailMenu.setEditable(false);
@@ -180,6 +180,14 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
     public int getHargaMenu(){
         return Integer.parseInt(tfHargaMenu.getText());
     }
+    
+    public void setNamaMenu(String nama) {
+        tfNamaMenu.setText(nama);
+    }
+    
+    public void setHargaMenu (String s) {
+        tfHargaMenu.setText(s);
+    }
 
     public JButton getBtnCreateMenu() {
         return btnCreateMenu;
@@ -199,6 +207,10 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
     
     public void setListMenu(String[] listMenu){
         listNamaMenu.setListData(listMenu);
+    }
+    
+    public JList getListNamaMenu() {
+        return listNamaMenu;
     }
     
     public void daftarMenu(String s){

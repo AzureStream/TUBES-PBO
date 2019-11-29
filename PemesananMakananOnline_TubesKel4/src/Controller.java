@@ -318,5 +318,15 @@ public class Controller extends MouseAdapter implements ActionListener {
             String id = driverHome.getSelectedHistory();
             driverHome.setTextHistory(model.searchPesanan(id).displayPesanan());
         }
+        
+        //Restoran Menu
+        if (source.equals(restoHome.getListNamaMenu())) {
+            String id = restoLogin.getRestoIdLogin();
+            restoHome.setListMenu(model.setMenuResto(id).getListMenu());
+            String nama = restoHome.getSelectedMenu();
+            Menu m = model.searchMenu(id, nama);
+            restoHome.setNamaMenu(m.getNamaMenu());
+            restoHome.setHargaMenu(m.getHargaMenuAsString());
+        }
     }
 }

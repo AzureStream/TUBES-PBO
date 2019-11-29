@@ -288,6 +288,11 @@ public class Aplikasi {
         Menu m = db.loadMenu(idRestoran, namaMenu);
         return m;
     }
+    
+    public String displayMenu(String idRestoran, String namaMenu) {
+        String m = db.loadOneMenu(idRestoran, namaMenu);
+        return m;
+    }
 
     //ID Generator
     public int newIdPelanggan() {
