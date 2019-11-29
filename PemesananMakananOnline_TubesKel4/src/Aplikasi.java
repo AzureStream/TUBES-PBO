@@ -217,13 +217,14 @@ public class Aplikasi {
     }
     
     //Menu
-    public String[] getNamaMenu(String idResto){
-        Restoran r = getRestoran(idResto);
-        String[] listMenu = r.getListMenu();
+    public String getNamaMenu(String idResto){
+        return db.loadAllMenu(idResto);
+//        Restoran r = getRestoran(idResto);
+//        String[] listMenu = r.getListMenu();
 //        for (int i = 0; i < r.getDaftarMenu().size(); i++) {
 //            listMenu[i] = r.getDaftarMenu().get(i).getNamaMenu();
 //        }
-        return listMenu;
+//        return listMenu;
 //        Restoran r = db.loadOneRestoranById(idResto);
 //        String[] listMenu = new String[db.loadAllMenu(r).size()];
 //        for (int i = 0; i < db.loadAllMenu(r).size(); i++) {

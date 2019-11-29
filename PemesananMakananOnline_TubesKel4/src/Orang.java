@@ -22,6 +22,4 @@ public abstract class Orang {
     public void setNama(String nama) {
         this.nama = nama;
     }
-    
-    
 }

@@ -101,7 +101,7 @@ public class Database {
     //Pengemudi
     public void savePengemud(Pengemudi d) {
         try {
-            String query = "insert into pengemudi values('" + d.getIdPengemudi()+ "','" + d.getNama() + "','" + d.getPlatNomor()+ "','" + d.getPassPengemudi() + "');";
+            String query = "insert into pengemudi values('" + d.getIdPengemudi()+ "','" + d.getNama() + "','" + d.getPlatNomor()+ "','" + d.getPassPengemudi() + "','"+d.getStatusPengemudi() + "');";
             Statement s = con.createStatement();
             s.execute(query);
             System.out.println("Saving success");
@@ -288,26 +288,25 @@ public class Database {
         }
     }
     
-    public ArrayList<Menu> loadAllMenu(Restoran r){
+    public String loadAllMenu(String id){
         try {
             ArrayList<Menu> menu = new ArrayList();
-            String query = "select namaMenu, hargaMenu from restoran where idRestoran='" + r.getIdRestoran() + "';";
+            String query = "select namaMenu, hargaMenu from restoran where idRestoran='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            Menu m = null;
+            String m = null;
             while(rs.next()){
                 String name=rs.getString(1);
                 int harga=Integer.parseInt(rs.getString(2));
-                m = new Menu(name, harga);
-                menu.add(m);
+                m = m + "Nama Menu : "+name+"\nHarga Menu : "+harga;
             }
-            return menu;
+            return m;
         } catch (SQLException se) {
             return null;
         }
     }
     
-    public Menu loadOneMenu(String id, String name) {
+    public Menu loadMenu(String id, String name) {
         try {
             String query = "select * from menu where idRestoran ='" + id + "' and namaMenu ='" + name + "';";
             Statement s = con.createStatement();
@@ -316,6 +315,7 @@ public class Database {
             while (rs.next()) {
                 int harga = Integer.parseInt(rs.getString(2));
                 m = new Menu(name, harga);
+                m.displayMenu();
             }
             return m;
         } catch (SQLException se) {

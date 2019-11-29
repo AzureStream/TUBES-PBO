@@ -30,10 +30,20 @@ public class Controller extends MouseAdapter implements ActionListener {
         restoLogin.addActionListener(this);
         restoHome.addActionListener(this);
         restoHome.addMouseListener(this);
+        pelangganLogin.addActionListener(this);
+        pelangganLogin.addMouseListener(this);
+        pelangganHome.addActionListener(this);
+        pelangganHome.addMouseListener(this);
+        driverLogin.addActionListener(this);
+        driverLogin.addMouseListener(this);
+        driverHome.addActioinListener(this);
+        driverHome.addMouseListener(this);
         home.addActionListener(this);
         home.setVisible(true);
         model.loadResto();
         restoLogin.setRestoIdRegister(Restoran.getSid());
+        pelangganLogin.setIdRegister(Pelanggan.getSid());
+        driverLogin.setIdRegister(Pengemudi.getSid());
     }
 
     @Override
@@ -122,6 +132,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String nama = driverLogin.getNama();
                 String plat = driverLogin.getPlatNomor();
                 String pass = driverLogin.getPassRegister();
+                String status = "Available";
                 Pengemudi d = new Pengemudi(id,nama,plat,pass);
                 model.addPengemudi(d);
                 driverLogin.setTextRegister("Pembuatan akun berhasil.\n"
@@ -223,7 +234,8 @@ public class Controller extends MouseAdapter implements ActionListener {
             }
             restoHome.resetView();
             JOptionPane.showMessageDialog(null, "Menu berhasil ditambahkan");
-            restoHome.setListMenu(model.getNamaMenu(idResto));
+//            restoHome.setListMenu(model.getNamaMenu(idResto));
+            restoHome.daftarMenu(model.getNamaMenu(idResto));
         }
         if (source.equals(restoHome.getBtnDeleteMenu())) {
             String idResto = restoLogin.getRestoIdLogin();

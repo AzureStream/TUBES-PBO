@@ -1,5 +1,6 @@
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -198,6 +199,10 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
     
     public void setListMenu(String[] listMenu){
         listNamaMenu.setListData(listMenu);
+    }
+    
+    public void daftarMenu(String s){
+        taDetailMenu.setText(s);
     }
     
     public String getSelectedMenu(){
