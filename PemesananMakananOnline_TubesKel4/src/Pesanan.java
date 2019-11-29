@@ -58,7 +58,7 @@ public class Pesanan {
         
         int t = 1;
         for (Menu menu : menuPesanan) {
-            s += t+". "+menu.getNamaMenu()+" seharga Rp."+menu.getHargaMenu()+"\n";
+            s += t+". "+menu.getNamaMenu()+"\t\tHarga Rp."+menu.getHargaMenu()+"\n";
             t++;
         }
         s += "Driver yang mengantar: "+this.driver.getNama()+" ("+this.driver.getPlatNomor()+")";

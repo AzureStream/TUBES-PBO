@@ -341,6 +341,7 @@ public class Database {
                 String statusOrder = rs.getString(5);
                 String namaMenu = rs.getString(6);
                 o = new Pesanan(loadOneRestoranById(idRestoran),loadOnePengemudiById(idPengemudi));
+                o.addMenu(new Menu(namaMenu,0));
             }
             return o;
         } catch (SQLException se) {

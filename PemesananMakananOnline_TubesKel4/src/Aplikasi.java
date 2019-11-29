@@ -20,10 +20,10 @@ public class Aplikasi {
     Database db;
 
     public Aplikasi() {
-        setDaftarPelanggan();
-        setDaftarPengemudi();
-        setDaftarRestoran();
-        setDaftarPesanan();
+        daftarPelanggan = new ArrayList();
+        daftarPengemudi = new ArrayList();
+        daftarRestoran = new ArrayList();
+        daftarPesanan = new ArrayList();
         db=new Database();
         db.connect();
     }
@@ -37,7 +37,7 @@ public class Aplikasi {
     }
     
     //List
-    public void setDaftarPelanggan() {
+    public void loadPelanggan() {
         daftarPelanggan = db.loadAllPelanggan();
     }
     
@@ -49,7 +49,7 @@ public class Aplikasi {
         return listId;    
     }
     
-    public void setDaftarPengemudi() {
+    public void loadPengemudi() {
         daftarPengemudi = db.loadAllPengemudi();
     }
 
@@ -61,7 +61,7 @@ public class Aplikasi {
         return listId;
     }
     
-    public void setDaftarRestoran() {
+    public void loadRestoran() {
         daftarRestoran = db.loadAllResto();
     }
 
@@ -73,7 +73,7 @@ public class Aplikasi {
         return listId;
     }
     
-    public void setDaftarPesanan() {
+    public void loadPesanan() {
         daftarPesanan = db.loadAllPesanan();
     }
 
@@ -157,10 +157,6 @@ public class Aplikasi {
         daftarRestoran.add(r);
     }
     
-    public void loadResto(){
-        daftarRestoran=db.loadAllResto();
-    }
-    
     public Restoran getRestoran(String idRestoran){
         for (Restoran restoran : daftarRestoran) {
             if (restoran.getIdRestoran()== idRestoran){
@@ -229,6 +225,10 @@ public class Aplikasi {
         } else {
             return null;
         }
+    }
+    
+    public Pesanan searchPesanan(String id) {
+        return db.loadOnePesananById(id);
     }
     
     //Menu

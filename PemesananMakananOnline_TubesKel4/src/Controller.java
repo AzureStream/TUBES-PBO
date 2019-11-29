@@ -29,18 +29,21 @@ public class Controller extends MouseAdapter implements ActionListener {
         model = new Aplikasi();
         restoLogin.addActionListener(this);
         restoHome.addActionListener(this);
-        restoHome.addMouseListener(this);
+        restoHome.addMouseAdapter(this);
         pelangganLogin.addActionListener(this);
         pelangganLogin.addMouseListener(this);
         pelangganHome.addActionListener(this);
-        pelangganHome.addMouseListener(this);
+        pelangganHome.addMouseAdapter(this);
         driverLogin.addActionListener(this);
         driverLogin.addMouseListener(this);
         driverHome.addActioinListener(this);
-        driverHome.addMouseListener(this);
+        driverHome.addMouseAdapter(this);
         home.addActionListener(this);
         home.setVisible(true);
-        model.loadResto();
+        model.loadPelanggan();
+        model.loadPengemudi();
+        model.loadRestoran();
+        model.loadPesanan();
         restoLogin.setRestoIdRegister(Restoran.getSid());
         pelangganLogin.setIdRegister(Pelanggan.getSid());
         driverLogin.setIdRegister(Pengemudi.getSid());
@@ -283,13 +286,13 @@ public class Controller extends MouseAdapter implements ActionListener {
         //Pelanggan Home/History
         if (source.equals(pelangganHome.getListHistory())) {
             String id = pelangganHome.getSelectedHistory();
-            pelangganHome.setTextDetailHistory(model.getPesanan(id).displayPesanan());
+            pelangganHome.setTextDetailHistory(model.searchPesanan(id).displayPesanan());
         }
 
         //Pengemudi Home/History
         if (source.equals(driverHome.getListHistory())) {
             String id = driverHome.getSelectedHistory();
-            driverHome.setTextHistory(model.getPesanan(id).displayPesanan());
+            driverHome.setTextHistory(model.searchPesanan(id).displayPesanan());
         }
     }
 }
