@@ -245,8 +245,13 @@ public class Database {
             String query = "select * from restoran where idRestoran='" + id + "' and passRestoran='" + pass + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            String idN = rs.getString(1);
-            String passN = rs.getString(2);
+            String idN, passN;
+            if (rs.getString(1) != null && rs.getString(2) != null) {
+                idN = rs.getString(1);
+                passN = rs.getString(2);
+            } else {
+                return null;
+            }
             Restoran r = new Restoran(idN, passN);
             return r;
         } catch (SQLException se) {
@@ -288,21 +293,19 @@ public class Database {
         }
     }
     
-    public String loadAllMenu(String id){
+    public void loadAllMenu(String id){
         try {
             ArrayList<Menu> menu = new ArrayList();
             String query = "select namaMenu, hargaMenu from restoran where idRestoran='" + id + "';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
-            String m = null;
             while(rs.next()){
                 String name=rs.getString(1);
                 int harga=Integer.parseInt(rs.getString(2));
-                m = m + "Nama Menu : "+name+"\nHarga Menu : "+harga;
+                System.out.println("\nNama Menu : "+name+"\nHarga Menu : Rp"+harga);
             }
-            return m;
         } catch (SQLException se) {
-            return null;
+            System.out.println(se);
         }
     }
     
@@ -318,6 +321,28 @@ public class Database {
                 m.displayMenu();
             }
             return m;
+        } catch (SQLException se) {
+            return null;
+        }
+    }
+    
+    //Pesanan
+    public Pesanan loadOnePesananById(String id) {
+        try {
+            String query = "select * from pesanan where idOrder ='" + id + "';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            Pesanan o = null;
+            while (rs.next()) {
+                String idOrder = rs.getString(1);
+                String idPelanggan = rs.getString(2);
+                String idPengemudi = rs.getString(3);
+                String idRestoran = rs.getString(4);
+                String statusOrder = rs.getString(5);
+                String namaMenu = rs.getString(6);
+                System.out.println("");
+            }
+            return o;
         } catch (SQLException se) {
             return null;
         }

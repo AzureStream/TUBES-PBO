@@ -217,8 +217,8 @@ public class Aplikasi {
     }
     
     //Menu
-    public String getNamaMenu(String idResto){
-        return db.loadAllMenu(idResto);
+    public void getNamaMenu(String idResto){
+        db.loadAllMenu(idResto);
 //        Restoran r = getRestoran(idResto);
 //        String[] listMenu = r.getListMenu();
 //        for (int i = 0; i < r.getDaftarMenu().size(); i++) {

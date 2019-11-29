@@ -121,7 +121,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         if (source.equals(pelangganHome.getBtnLogout())) {
             model.setIdLogin("");
             pelangganHome.dispose();
-            pelangganHome.setVisible(true);
+            pelangganLogin.setVisible(true);
         }
         
         //Pengemudi Register/Login
@@ -235,7 +235,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             restoHome.resetView();
             JOptionPane.showMessageDialog(null, "Menu berhasil ditambahkan");
 //            restoHome.setListMenu(model.getNamaMenu(idResto));
-            restoHome.daftarMenu(model.getNamaMenu(idResto));
+//            restoHome.daftarMenu(model.getNamaMenu(idResto));
         }
         if (source.equals(restoHome.getBtnDeleteMenu())) {
             String idResto = restoLogin.getRestoIdLogin();
@@ -263,7 +263,9 @@ public class Controller extends MouseAdapter implements ActionListener {
         }
         if (source.equals(restoHome.getBtnHome())) {
             restoLogin.dispose();
-            restoHome.setVisible(true);
+            restoLogin.resetView();
+            restoHome.dispose();
+            home.setVisible(true);
         }
 
     }
