@@ -97,7 +97,7 @@ public class Aplikasi {
         return null;
     }
 
-    public void updatePengemudi(String idPengemudi, String nama, String platNomor) {     //This method is useless
+    public void updatePengemudi(String idPengemudi, String nama, String platNomor) {
         db.updateProfil(idPengemudi, nama, platNomor);
     }
 
@@ -116,6 +116,15 @@ public class Aplikasi {
             history[i++] = (String) o;
         }
         return history;
+    }
+    
+    public String ambilPesanan() {
+        Pengemudi d = db.loadOnePengemudiById(idLogin);
+        System.out.println("Pengemudi loaded dengan id "+d.getIdPengemudi());
+        db.updateNotAvailablePengemudi(d);
+        ArrayList<Pesanan> pesanan = db.loadAvailablePesanan();
+        Pesanan o = pesanan.get(0);
+        return o.getIdOrder();
     }
 
     //Pelanggan

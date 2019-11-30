@@ -168,16 +168,39 @@ public class Database {
             return null;
         }
     }
+    
+    public void updateNotAvailablePengemudi(Pengemudi d) {
+        try {
+            String query = "update pengemudi set statusPengemudi ='Not available' where idPengemudi='"+d.getIdPengemudi()+"';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            System.out.println("Update status pengemudi berhasil");
+        } catch (SQLException ex) {
+            System.out.println("Update status pengemudi gagal");
+        }
+    }
+    
+    public void updateAvailablePengemudi(Pengemudi d) {
+        try {
+            String query = "update pengemudi set statusPengemudi ='Available' where idPengemudi='"+d.getIdPengemudi()+"';";
+            Statement s = con.createStatement();
+            s.executeQuery(query);
+            System.out.println("Update status pengemudi berhasil");
+        } catch (SQLException ex) {
+            System.out.println("Update status pengemudi gagal");
+        }
+    }
 
     public void updateProfil(String id, String nama, String plat) {
         try {
             String query = "update pengemudi set namaPengemudi='" + nama + "' where idPengemudi='" + id + "';";
             Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery(query);
+            s.executeQuery(query);
             query = "update pengemudi set platNomor='" + plat + "' where idPengemudi='" + id + "';";
-            rs = s.executeQuery(query);
+            s.executeQuery(query);
+            System.out.println("Update profil pengemudi berhasil");
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Update profil pengemudi gagal");
         }
     }
 
@@ -364,15 +387,38 @@ public class Database {
             ResultSet rs = s.executeQuery(query);
             Pesanan o = null;
             while (rs.next()) {
+                String idOrder = rs.getString(1);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
                 String statusOrder = rs.getString(5);
-                o = new Pesanan(loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
                 o.setStatus(statusOrder);
-                o.addMenu(new Menu("namaMenu", 0));
+                o.addMenu(new Menu("namaMenu", 0)); // This line is temporary, must be fixed
             }
             return o;
         } catch (SQLException se) {
+            return null;
+        }
+    }
+    
+    public ArrayList<Pesanan> loadAvailablePesanan() {
+        try {
+            ArrayList<Pesanan> pesanan = new ArrayList<>();
+            String query = "select * from pesanan where statusOrder = 'Pesanan dibuat'";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            while (rs.next()) {
+                String idOrder = rs.getString(1);
+                String idPengemudi = rs.getString(3);
+                String idRestoran = rs.getString(4);
+                String statusOrder = rs.getString(5);
+                Pesanan o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                o.setStatus(statusOrder);
+                o.addMenu(new Menu("namaMenu",0));  // This line is temporary, must be fixed
+                pesanan.add(o);
+            }
+            return pesanan;
+        } catch (SQLException ex) {
             return null;
         }
     }
@@ -385,10 +431,11 @@ public class Database {
             ResultSet rs = s.executeQuery(query);
             Pesanan o = null;
             while (rs.next()) {
+                String idOrder = rs.getString(1);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
                 String statusOrder = rs.getString(5);
-                o = new Pesanan(loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
                 o.setStatus(statusOrder);
                 pesanan.add(o);
             }

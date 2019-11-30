@@ -295,6 +295,10 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         tfIdPesanan.setText(s);
     }
     
+    public String getIdPesanan() {
+        return tfIdPesanan.getText();
+    }
+    
     public String getNamaBaru() {
         return tfNamaBaru.getText();
     }

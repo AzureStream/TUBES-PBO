@@ -8,7 +8,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Controller extends MouseAdapter implements ActionListener {
-
+    
     GUI_Restoran_Login restoLogin;
     GUI_Restoran_Home restoHome;
     GUI_Pelanggan_Login pelangganLogin;
@@ -18,7 +18,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     GUI_Aplikasi home;
     Aplikasi model;
     List keranjang;
-
+    
     public Controller() {
         restoLogin = new GUI_Restoran_Login();
         restoHome = new GUI_Restoran_Home();
@@ -49,7 +49,7 @@ public class Controller extends MouseAdapter implements ActionListener {
         pelangganLogin.setIdRegister(model.newIdPelanggan());
         driverLogin.setIdRegister(model.newIdPengemudi());
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
@@ -72,12 +72,12 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String id = pelangganLogin.getIdRegister();
                 String nama = pelangganLogin.getNama();
                 String pass = pelangganLogin.getPassRegister();
-                Pelanggan c = new Pelanggan(id,nama,pass);
+                Pelanggan c = new Pelanggan(id, nama, pass);
                 model.addPelanggan(c);
                 model.loadPelanggan();
                 pelangganLogin.setTextRegister("Pembuatan akun berhasil.\n"
-                        + "Terimakasih telah mendaftar "+nama+".");
-            } catch(Exception e) {
+                        + "Terimakasih telah mendaftar " + nama + ".");
+            } catch (Exception e) {
                 pelangganLogin.setTextRegister("Pembuatan akun gagal.");
             }
             pelangganLogin.resetView();
@@ -89,7 +89,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             try {
                 String id = pelangganLogin.getIdLogin();
                 String pass = pelangganLogin.getPassLogin();
-                if (!model.cekLoginPelanggan(id,pass)) {
+                if (!model.cekLoginPelanggan(id, pass)) {
                     pelangganLogin.dispose();
                     pelangganHome.setVisible(true);
                     model.setIdLogin(id);
@@ -99,49 +99,48 @@ public class Controller extends MouseAdapter implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
-            } catch(Exception e) {
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }
         //Kembali
-        if (source.equals(pelangganLogin.getBtnKembali())||source.equals(pelangganLogin.getBtnKembaliLogin())) {
+        if (source.equals(pelangganLogin.getBtnKembali()) || source.equals(pelangganLogin.getBtnKembaliLogin())) {
             pelangganLogin.dispose();
             home.setVisible(true);
         }
-        
+
         //Pelanggan Home
         //Pesan
         if (source.equals(pelangganHome.getBtnAddKeranjang())) {
             keranjang.add(pelangganHome.getSelectedMenu());
             String[] daftarKeranjang = new String[keranjang.size()];
             int i = 0;
-            for (Object o: keranjang) {
+            for (Object o : keranjang) {
                 daftarKeranjang[i++] = o.toString();
             }
             pelangganHome.setListKeranjang(daftarKeranjang);
         }
         
         if (source.equals(pelangganHome.getBtnPesan())) {
-            Pesanan o = new Pesanan("O-"+model.newIdOrder(),model.searchRestoran(pelangganHome.getSelectedRestoran()),model.searchAvailPengemudi());
+            Pesanan o = new Pesanan("O-" + model.newIdOrder(), model.searchRestoran(pelangganHome.getSelectedRestoran()), model.searchAvailPengemudi());
             model.addPesanan(o);
             model.loadPesanan();
-            for (Object p: keranjang) {
+            for (Object p : keranjang) {
                 model.addRelasi(o.getIdOrder(), p.toString());
             }
             pelangganHome.setListHistory(model.getHistoryPelanggan());
             keranjang.clear();
         }
-        
+
         //History
         //It's in Mouse Adapter
-        
         //Logout
         if (source.equals(pelangganHome.getBtnLogout())) {
             model.setIdLogin("");
             pelangganHome.dispose();
             pelangganLogin.setVisible(true);
         }
-        
+
         //Pengemudi Register/Login
         //Register
         if (source.equals(driverLogin.getBtnDaftar())) {
@@ -151,11 +150,11 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String plat = driverLogin.getPlatNomor();
                 String pass = driverLogin.getPassRegister();
                 String status = "Available";
-                Pengemudi d = new Pengemudi(id,nama,plat,pass,status);
+                Pengemudi d = new Pengemudi(id, nama, plat, pass, status);
                 model.addPengemudi(d);
                 driverLogin.setTextRegister("Pembuatan akun berhasil.\n"
-                        + "Terimakasih telah mendaftar "+nama+".");
-            } catch(Exception e) {
+                        + "Terimakasih telah mendaftar " + nama + ".");
+            } catch (Exception e) {
                 driverLogin.setTextRegister("Pembuatan akun gagal.");
             }
             driverLogin.resetView();
@@ -167,26 +166,30 @@ public class Controller extends MouseAdapter implements ActionListener {
             try {
                 String id = driverLogin.getIdLogin();
                 String pass = driverLogin.getPassLogin();
-                if (!model.cekLoginPengemudi(id,pass)) {
+                if (!model.cekLoginPengemudi(id, pass)) {
                     driverLogin.dispose();
                     driverHome.setVisible(true);
                     model.setIdLogin(id);
+                    driverHome.setIdPesanan(model.ambilPesanan());
                     driverHome.setListHistory(model.getHistoryPengemudi());
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }
-            } catch(Exception e) {
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }
         //Kembali
-        if (source.equals(driverLogin.getBtnKembali())) {
+        if (source.equals(driverLogin.getBtnKembali()) || source.equals(driverLogin.getBtnKembaliLogin())) {
             driverLogin.dispose();
             home.setVisible(true);
         }
-        
+
         //Pengemudi Home
         //Ambil Pesanan
+        if (source.equals(driverHome.getBtnOtw())) {}       //Under construction
+        
+        if (source.equals(driverHome.getBtnFinish())) {}    //Under construction
         
         //Edit Profil
         if (source.equals(driverHome.getBtnSimpan())) {
@@ -196,7 +199,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             model.updatePengemudi(id, nama, plat);
             driverHome.setTextEditProfil("Profil berhasil diperbarui");
         }
-        
+
         //History
         //It's in Mouse Adapter
         
@@ -206,7 +209,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             driverHome.dispose();
             driverLogin.setVisible(true);
         }
-        
+
         // Button RestoLogin
         if (source.equals(restoLogin.getBtnDaftarResto())) {
             try {
@@ -285,9 +288,9 @@ public class Controller extends MouseAdapter implements ActionListener {
             restoHome.dispose();
             restoLogin.setVisible(true);
         }
-
+        
     }
-
+    
     @Override
     public void mousePressed(MouseEvent me) {
         Object source = me.getSource();
@@ -297,7 +300,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             String id = pelangganHome.getSelectedRestoran();
             pelangganHome.setListMenu(model.setMenuResto(id).getListMenu());
         }
-        
+
         //Pelanggan Home/Pesan/List Menu
         if (source.equals(pelangganHome.getListMenu())) {
             String id = pelangganHome.getSelectedRestoran();
@@ -317,7 +320,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             String id = driverHome.getSelectedHistory();
             driverHome.setTextHistory(model.searchPesanan(id).displayPesanan());
         }
-        
+
         //Restoran Menu
         if (source.equals(restoHome.getListNamaMenu())) {
             String id = restoLogin.getRestoIdLogin();
