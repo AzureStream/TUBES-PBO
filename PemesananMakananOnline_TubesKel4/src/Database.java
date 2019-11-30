@@ -299,6 +299,22 @@ public class Database {
             System.out.println("Saving error");
         }
     }
+    
+    public Menu loadOneMenu(String id, String nama) {
+        try {
+            String query = "select hargaMenu from menu where idRestoran ='"+id+"' and namaMenu='"+nama+"';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            Menu m = null;
+            while(rs.next()) {
+                int harga = Integer.parseInt(rs.getString(1));
+                m = new Menu(nama,harga);
+            }
+            return m;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
 
     public void deleteMenu(String id, String nama) {
         try {
@@ -356,7 +372,7 @@ public class Database {
         }
     }
     
-    public String loadOneMenu(String id, String name) {
+    public String infoOneMenu(String id, String name) {
         try {
             String query = "select namaMenu, hargaMenu from menu where idRestoran ='" + id + "' and namaMenu ='" + name + "';";
             Statement s = con.createStatement();
@@ -394,7 +410,6 @@ public class Database {
                 String statusOrder = rs.getString(5);
                 o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
                 o.setStatus(statusOrder);
-                o.addMenu(new Menu("namaMenu", 0)); // This line is temporary, must be fixed
             }
             return o;
         } catch (SQLException se) {
@@ -509,6 +524,22 @@ public class Database {
             System.out.println("Saving success");
         } catch (SQLException se) {
             System.out.println("Saving error");
+        }
+    }
+    
+    public ArrayList<String> loadRelasiOfOrder(Pesanan o) {
+        try {
+            ArrayList<String> relasi = new ArrayList();
+            String query = "select namaMenu from relasi_pesanan_menu where id_order ='"+o.getIdOrder()+"';";
+            Statement s= con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            while(rs.next()) {
+                String namaMenu = rs.getString(1);
+                relasi.add(namaMenu);
+            }
+            return relasi;
+        } catch (SQLException ex) {
+            return null;
         }
     }
 }

@@ -236,12 +236,23 @@ public class Aplikasi {
         return p;
     }
 
-    public Pesanan searchPesanan(String id) {
-        return db.loadOnePesananById(id);
-    }
-    
-    public void addRelasi(String idOrder, String namaMenu) {
-        db.saveRelasi(idOrder, namaMenu);
+    public String displayPesanan(Pesanan o) {
+        o.setListMenu(db.loadRelasiOfOrder(o));
+        String s = "===============\n"
+                +"PESANAN\n"
+                +"Nama Restoran: "+o.getRestoran().getNamaRestoran()+"\n"
+                +"Menu yang dipesan:\n";
+        
+        int t = 1;
+        for (Object menu : o.getListMenu()) {
+            Menu m = db.loadOneMenu(o.getRestoran().getIdRestoran(), menu.toString());
+            s += t+". "+m.getNamaMenu()+"\t\tHarga Rp."+m.getHargaMenu()+"\n";
+            t++;
+        }
+        s += "Driver yang mengantar: "+o.getPengemudi().getNama()+" ("+o.getPengemudi().getPlatNomor()+")  ";
+        s += "  Status: "+o.getStatus();
+        
+        return s;
     }
     
     public void updateDiambil(Pesanan o) {
@@ -305,8 +316,23 @@ public class Aplikasi {
     }
     
     public String displayMenu(String idRestoran, String namaMenu) {
-        String m = db.loadOneMenu(idRestoran, namaMenu);
+        String m = db.infoOneMenu(idRestoran, namaMenu);
         return m;
+    }
+    
+    //Relasi Section   
+    public void addRelasi(String idOrder, String namaMenu) {
+        db.saveRelasi(idOrder, namaMenu);
+    }
+    
+    public String[] getRelasi(Pesanan o) {
+        ArrayList<String> r = db.loadRelasiOfOrder(o);
+        String[] relasi = new String[r.size()];
+        int i = 0;
+        for(String s: r) {
+            relasi[i++] = s;
+        }
+        return relasi;
     }
 
     //ID Generator

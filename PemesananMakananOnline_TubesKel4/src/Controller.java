@@ -171,6 +171,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     driverHome.setVisible(true);
                     model.setIdLogin(id);
                     driverHome.setIdPesanan(model.ambilPesanan());
+                    driverHome.setListKeranjang(model.getRelasi(model.getPesanan(driverHome.getIdPesanan())));
                     driverHome.setListHistory(model.getHistoryPengemudi());
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
@@ -320,13 +321,13 @@ public class Controller extends MouseAdapter implements ActionListener {
         //Pelanggan Home/History
         if (source.equals(pelangganHome.getListHistory())) {
             String id = pelangganHome.getSelectedHistory();
-            pelangganHome.setTextDetailHistory(model.searchPesanan(id).displayPesanan());
+            pelangganHome.setTextDetailHistory(model.displayPesanan(model.getPesanan(id)));
         }
 
         //Pengemudi Home/History
         if (source.equals(driverHome.getListHistory())) {
             String id = driverHome.getSelectedHistory();
-            driverHome.setTextHistory(model.searchPesanan(id).displayPesanan());
+            driverHome.setTextHistory(model.displayPesanan(model.getPesanan(id)));
         }
 
         //Restoran Menu

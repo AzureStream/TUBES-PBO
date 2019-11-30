@@ -47,6 +47,14 @@ public class Pesanan {
     public Restoran getRestoran() {
         return restoran;
     }
+    
+    public void setListMenu(ArrayList x) {
+        menuPesanan = x;
+    }
+    
+    public ArrayList getListMenu() {
+        return (ArrayList) menuPesanan;
+    }
 
     public String getIdOrder() {
         return idOrder;
