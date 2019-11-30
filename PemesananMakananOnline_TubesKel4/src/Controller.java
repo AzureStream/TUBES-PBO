@@ -187,9 +187,17 @@ public class Controller extends MouseAdapter implements ActionListener {
 
         //Pengemudi Home
         //Ambil Pesanan
-        if (source.equals(driverHome.getBtnOtw())) {}       //Under construction
+        if (source.equals(driverHome.getBtnOtw())) {
+            Pesanan o = model.getPesanan(driverHome.getIdPesanan());
+            model.updateOtw(o);
+        }       
         
-        if (source.equals(driverHome.getBtnFinish())) {}    //Under construction
+        if (source.equals(driverHome.getBtnFinish())) {
+            Pesanan o = model.getPesanan(driverHome.getIdPesanan());
+            model.updateFinish(o);
+            Pengemudi d = model.getPengemudi(model.getIdLogin());
+            model.updateStatusAvailable(d);
+        }    
         
         //Edit Profil
         if (source.equals(driverHome.getBtnSimpan())) {

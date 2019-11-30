@@ -173,7 +173,8 @@ public class Database {
         try {
             String query = "update pengemudi set statusPengemudi ='Not available' where idPengemudi='"+d.getIdPengemudi()+"';";
             Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery(query);
+            s.executeUpdate(query);
+            System.out.println("query dieksekusi");
             System.out.println("Update status pengemudi berhasil");
         } catch (SQLException ex) {
             System.out.println("Update status pengemudi gagal");
@@ -184,7 +185,7 @@ public class Database {
         try {
             String query = "update pengemudi set statusPengemudi ='Available' where idPengemudi='"+d.getIdPengemudi()+"';";
             Statement s = con.createStatement();
-            s.executeQuery(query);
+            s.executeUpdate(query);
             System.out.println("Update status pengemudi berhasil");
         } catch (SQLException ex) {
             System.out.println("Update status pengemudi gagal");
@@ -195,9 +196,9 @@ public class Database {
         try {
             String query = "update pengemudi set namaPengemudi='" + nama + "' where idPengemudi='" + id + "';";
             Statement s = con.createStatement();
-            s.executeQuery(query);
+            s.executeUpdate(query);
             query = "update pengemudi set platNomor='" + plat + "' where idPengemudi='" + id + "';";
-            s.executeQuery(query);
+            s.executeUpdate(query);
             System.out.println("Update profil pengemudi berhasil");
         } catch (SQLException ex) {
             System.out.println("Update profil pengemudi gagal");
@@ -463,6 +464,39 @@ public class Database {
             return pengemudi;
         } catch (SQLException ex) {
             return null;
+        }
+    }
+    
+    public void updateDiambilPesanan(Pesanan o) {
+        try {
+            String query = "update pesanan set statusOrder ='Pesanan diambil' where idOrder='"+o.getIdOrder()+"';";
+            Statement s = con.createStatement();
+            s.executeUpdate(query);
+            System.out.println("Update status pesanan berhasil");
+        } catch (SQLException ex) {
+            System.out.println("Update status pesanan gagal");
+        }
+    }
+    
+    public void updateOtwPesanan(Pesanan o) {
+        try {
+            String query = "update pesanan set statusOrder ='On the way' where idOrder='"+o.getIdOrder()+"';";
+            Statement s = con.createStatement();
+            s.executeUpdate(query);
+            System.out.println("Update status pesanan berhasil");
+        } catch (SQLException ex) {
+            System.out.println("Update status pesanan gagal");
+        }
+    }
+    
+    public void updateSelesaiPesanan(Pesanan o) {
+        try {
+            String query = "update pesanan set statusOrder ='Pesanan selesai' where idOrder ='"+o.getIdOrder()+"';";
+            Statement s = con.createStatement();
+            s.executeUpdate(query);
+            System.out.println("Update status pesanan berhasil");
+        } catch (SQLException ex) {
+            System.out.println("Update status pesanan gagal");
         }
     }
 

@@ -89,12 +89,7 @@ public class Aplikasi {
     }
 
     public Pengemudi getPengemudi(String idPengemudi) {
-        for (Pengemudi pengemudi : daftarPengemudi) {
-            if (pengemudi.getIdPengemudi() == idPengemudi) {
-                return pengemudi;
-            }
-        }
-        return null;
+        return db.loadOnePengemudiById(idLogin);
     }
 
     public void updatePengemudi(String idPengemudi, String nama, String platNomor) {
@@ -124,7 +119,12 @@ public class Aplikasi {
         db.updateNotAvailablePengemudi(d);
         ArrayList<Pesanan> pesanan = db.loadAvailablePesanan();
         Pesanan o = pesanan.get(0);
+        db.updateDiambilPesanan(o);
         return o.getIdOrder();
+    }
+    
+    public void updateStatusAvailable(Pengemudi d) {
+        db.updateAvailablePengemudi(d);
     }
 
     //Pelanggan
@@ -227,18 +227,12 @@ public class Aplikasi {
     }
     
     public Pesanan getPesanan(String id) {
-        for (Pesanan o : daftarPesanan) {
-            if (o.getIdOrder() == id) {
-                return o;
-            }
-        }
-        return null;
+        return db.loadOnePesananById(id);
     }
     
     public Pengemudi searchAvailPengemudi() {
         ArrayList<Pengemudi> pengemudi = db.availablePengemudi();       
         Pengemudi p = pengemudi.get(0);
-        p.setStatusPengemudi("Not available");
         return p;
     }
 
@@ -248,6 +242,18 @@ public class Aplikasi {
     
     public void addRelasi(String idOrder, String namaMenu) {
         db.saveRelasi(idOrder, namaMenu);
+    }
+    
+    public void updateDiambil(Pesanan o) {
+        db.updateDiambilPesanan(o);
+    }
+    
+    public void updateOtw(Pesanan o) {
+        db.updateOtwPesanan(o);
+    }
+    
+    public void updateFinish(Pesanan o) {
+        db.updateSelesaiPesanan(o);
     }
 
     //Menu

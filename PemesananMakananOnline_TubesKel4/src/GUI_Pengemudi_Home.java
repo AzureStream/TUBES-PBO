@@ -358,6 +358,8 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
     public void addActioinListener(ActionListener x) {
         btnSimpan.addActionListener(x);
         btnLogout.addActionListener(x);
+        btnOtw.addActionListener(x);
+        btnFinish.addActionListener(x);
     }
     
     public void addMouseAdapter(MouseAdapter x) {

@@ -15,6 +15,5 @@ public class Testing {
         Pengemudi p = a.searchAvailPengemudi();
         System.out.println(p.getNama());
         
-        a.addRelasi("id", "nama");
     }
 }
