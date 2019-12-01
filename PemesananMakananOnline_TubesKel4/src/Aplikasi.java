@@ -1,5 +1,6 @@
 
 import java.util.*;
+import javax.swing.JList;
 
 /**
  * -------------------------------- NOTE -------------------------------------
@@ -15,6 +16,7 @@ public class Aplikasi {
     private List<Restoran> daftarRestoran;
     private List<Pesanan> daftarPesanan;
     private String idLogin;
+    private int totalHarga = 0;
     Database db;
 
     public Aplikasi() {
@@ -115,11 +117,16 @@ public class Aplikasi {
     
     public String ambilPesanan() {
         Pengemudi d = db.loadOnePengemudiById(idLogin);
-        System.out.println("Pengemudi loaded dengan id "+d.getIdPengemudi());
-        db.updateNotAvailablePengemudi(d);
+        Pesanan o = null;
+        System.out.println("Pengemudi loaded dengan id "+d.getIdPengemudi());        
         ArrayList<Pesanan> pesanan = db.loadAvailablePesanan();
-        Pesanan o = pesanan.get(0);
-        db.updateDiambilPesanan(o);
+        if (pesanan != null) {
+            o = pesanan.get(0);
+            db.updateDiambilPesanan(o);
+            db.updateNotAvailablePengemudi(d);
+        } else {
+            o = db.loadPesananDiambil(d.getIdPengemudi());
+        }
         return o.getIdOrder();
     }
     
@@ -235,6 +242,18 @@ public class Aplikasi {
         Pengemudi p = pengemudi.get(0);
         return p;
     }
+    
+    public void hitungTotalHarga(int x) {
+        totalHarga += x;
+    }
+    
+    public String getTotalHarga() {
+        return ""+totalHarga;
+    }
+    
+    public void resetTotalHarga() {
+        totalHarga = 0;
+    }
 
     public String displayPesanan(Pesanan o) {
         o.setListMenu(db.loadRelasiOfOrder(o));
@@ -249,12 +268,14 @@ public class Aplikasi {
             s += t+". "+m.getNamaMenu()+"\t\tHarga Rp."+m.getHargaMenu()+"\n";
             t++;
         }
+        s += "\nTotal harga: Rp "+o.getTotalHarga()+"\n";
         s += "Driver yang mengantar: "+o.getPengemudi().getNama()+" ("+o.getPengemudi().getPlatNomor()+")  ";
         s += "  Status: "+o.getStatus();
         
         return s;
     }
     
+    //Pesanan - UpdateStatus
     public void updateDiambil(Pesanan o) {
         db.updateDiambilPesanan(o);
     }

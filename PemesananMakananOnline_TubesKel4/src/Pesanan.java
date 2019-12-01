@@ -17,6 +17,7 @@ public class Pesanan {
     private Restoran restoran;
     private List<Menu> menuPesanan = new ArrayList();
     private String status = "Pesanan dibuat";
+    private int totalHarga;
     private static int sid = 1;
 
     public Pesanan(Restoran restoran, Pengemudi pengemudi) {
@@ -30,6 +31,13 @@ public class Pesanan {
         addPengemudi(pengemudi);
         addRestoran(restoran);
         idOrder = id;
+    }
+    
+    public Pesanan(String id, Restoran restoran, Pengemudi pengemudi, int totalHarga) {
+        addPengemudi(pengemudi);
+        addRestoran(restoran);
+        idOrder = id;
+        this.totalHarga = totalHarga;
     }
     
     public void addPengemudi(Pengemudi p){
@@ -62,6 +70,14 @@ public class Pesanan {
     
     public void addMenu(Menu m){
         menuPesanan.add(m);
+    }
+
+    public int getTotalHarga() {
+        return totalHarga;
+    }
+
+    public void setTotalHarga(int totalHarga) {
+        this.totalHarga = totalHarga;
     }
 
     public void setStatus(String status) {

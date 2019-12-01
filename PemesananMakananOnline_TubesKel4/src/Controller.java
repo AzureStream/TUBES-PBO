@@ -118,22 +118,27 @@ public class Controller extends MouseAdapter implements ActionListener {
             for (Object o : keranjang) {
                 daftarKeranjang[i++] = o.toString();
             }
+            model.hitungTotalHarga(Integer.parseInt(pelangganHome.getHarga()));
+            pelangganHome.setTotalHarga(model.getTotalHarga());
             pelangganHome.setListKeranjang(daftarKeranjang);
+            pelangganHome.getListMenu().clearSelection();
         }
         
         if (source.equals(pelangganHome.getBtnPesan())) {
-            Pesanan o = new Pesanan("O-" + model.newIdOrder(), model.searchRestoran(pelangganHome.getSelectedRestoran()), model.searchAvailPengemudi());
+            Pesanan o = new Pesanan("O-" + model.newIdOrder(), model.searchRestoran(pelangganHome.getSelectedRestoran()), model.searchAvailPengemudi(), Integer.parseInt(model.getTotalHarga()));
             model.addPesanan(o);
             model.loadPesanan();
             for (Object p : keranjang) {
                 model.addRelasi(o.getIdOrder(), p.toString());
             }
             pelangganHome.setListHistory(model.getHistoryPelanggan());
+            pelangganHome.getListKeranjang().removeAll();
             keranjang.clear();
         }
 
         //History
         //It's in Mouse Adapter
+        
         //Logout
         if (source.equals(pelangganHome.getBtnLogout())) {
             model.setIdLogin("");
@@ -170,9 +175,10 @@ public class Controller extends MouseAdapter implements ActionListener {
                     driverLogin.dispose();
                     driverHome.setVisible(true);
                     model.setIdLogin(id);
+                    driverHome.setListHistory(model.getHistoryPengemudi());
                     driverHome.setIdPesanan(model.ambilPesanan());
                     driverHome.setListKeranjang(model.getRelasi(model.getPesanan(driverHome.getIdPesanan())));
-                    driverHome.setListHistory(model.getHistoryPengemudi());
+                    driverHome.setTotalHarga(""+model.getPesanan(driverHome.getIdPesanan()).getTotalHarga());
                 } else {
                     JOptionPane.showMessageDialog(null, "ID/Password salah");
                 }

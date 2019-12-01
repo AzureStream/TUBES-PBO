@@ -388,7 +388,7 @@ public class Database {
     public void savePesanan(String idPelanggan, Pesanan d) {
         try {
             String query = "insert into pesanan values('" + d.getIdOrder() + "','" + idPelanggan + "','" + d.getPengemudi().getIdPengemudi() + "','"
-                    + d.getRestoran().getIdRestoran() + "','" + d.getStatus() + "');";
+                    + d.getRestoran().getIdRestoran() + "','" + d.getTotalHarga() + "','" + d.getStatus() + "');";
             Statement s = con.createStatement();
             s.execute(query);
             System.out.println("Saving success");
@@ -407,8 +407,9 @@ public class Database {
                 String idOrder = rs.getString(1);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
-                String statusOrder = rs.getString(5);
-                o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                String totalHarga = rs.getString(5);
+                String statusOrder = rs.getString(6);
+                o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi), Integer.parseInt(totalHarga));
                 o.setStatus(statusOrder);
             }
             return o;
@@ -420,20 +421,42 @@ public class Database {
     public ArrayList<Pesanan> loadAvailablePesanan() {
         try {
             ArrayList<Pesanan> pesanan = new ArrayList<>();
-            String query = "select * from pesanan where statusOrder = 'Pesanan dibuat'";
+            String query = "select * from pesanan where statusOrder = 'Pesanan dibuat';";
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(query);
             while (rs.next()) {
                 String idOrder = rs.getString(1);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
-                String statusOrder = rs.getString(5);
-                Pesanan o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                String totalHarga = rs.getString(5);
+                String statusOrder = rs.getString(6);
+                Pesanan o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi), Integer.parseInt(totalHarga));
                 o.setStatus(statusOrder);
-                o.addMenu(new Menu("namaMenu",0));  // This line is temporary, must be fixed
                 pesanan.add(o);
             }
             return pesanan;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+    
+    public Pesanan loadPesananDiambil(String id) {
+        try {
+            ArrayList<Pesanan> pesanan = new ArrayList<>();
+            String query = "select * from pesanan where statusOrder = 'Pesanan diambil' and idPengemudi ='"+id+"';";
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            while (rs.next()) {
+                String idOrder = rs.getString(1);
+                String idPengemudi = rs.getString(3);
+                String idRestoran = rs.getString(4);
+                String totalHarga = rs.getString(5);
+                String statusOrder = rs.getString(6);
+                Pesanan o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi), Integer.parseInt(totalHarga));
+                o.setStatus(statusOrder);
+                pesanan.add(o);
+            }
+            return pesanan.get(0);
         } catch (SQLException ex) {
             return null;
         }
@@ -450,8 +473,9 @@ public class Database {
                 String idOrder = rs.getString(1);
                 String idPengemudi = rs.getString(3);
                 String idRestoran = rs.getString(4);
-                String statusOrder = rs.getString(5);
-                o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi));
+                String totalHarga = rs.getString(5);
+                String statusOrder = rs.getString(6);
+                o = new Pesanan(idOrder, loadOneRestoranById(idRestoran), loadOnePengemudiById(idPengemudi), Integer.parseInt(totalHarga));
                 o.setStatus(statusOrder);
                 pesanan.add(o);
             }
