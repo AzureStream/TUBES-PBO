@@ -155,7 +155,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                 String plat = driverLogin.getPlatNomor();
                 String pass = driverLogin.getPassRegister();
                 String status = "Available";
-                Pengemudi d = new Pengemudi(id, nama, plat, pass, status);
+                Pengemudi d = new Pengemudi(id, nama, pass, plat, status);
                 model.addPengemudi(d);
                 driverLogin.setTextRegister("Pembuatan akun berhasil.\n"
                         + "Terimakasih telah mendaftar " + nama + ".");
