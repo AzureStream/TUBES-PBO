@@ -136,7 +136,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(12, 13, 173, 400);
+        jPanel2.setBounds(12, 13, 172, 400);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -214,7 +214,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(203, 13, 560, 410);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan.jpg")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan.jpg"))); // NOI18N
         jPanel1.add(jLabel13);
         jLabel13.setBounds(-30, -10, 1280, 807);
 
@@ -224,11 +224,11 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
 
         jLabel1.setText("Daftar Pesananmu");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(12, 13, 105, 16);
+        jLabel1.setBounds(12, 13, 89, 15);
 
         jLabel2.setText("Detail");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(153, 13, 32, 16);
+        jLabel2.setBounds(153, 13, 26, 15);
 
         listHistoryPelanggan.setAutoscrolls(false);
         jScrollPane1.setViewportView(listHistoryPelanggan);
@@ -244,7 +244,7 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(153, 47, 600, 420);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel3.add(jLabel14);
         jLabel14.setBounds(-20, 50, 950, 720);
 
@@ -261,15 +261,15 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         jPanel5.add(btnLogout);
         btnLogout.setBounds(325, 543, 130, 60);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\Ikuzo.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ikuzo.png"))); // NOI18N
         jPanel5.add(jLabel10);
         jLabel10.setBounds(135, 13, 500, 500);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel5.add(jLabel11);
         jLabel11.setBounds(-10, 0, 860, 350);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel5.add(jLabel12);
         jLabel12.setBounds(-20, 230, 850, 450);
 
@@ -280,14 +280,14 @@ public class GUI_Pelanggan_Home extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE))
         );
 
         pack();

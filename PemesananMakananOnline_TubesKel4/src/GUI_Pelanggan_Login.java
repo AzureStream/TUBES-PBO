@@ -58,15 +58,15 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
 
         jLabel4.setText("ID Pelanggan :");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(80, 90, 84, 20);
+        jLabel4.setBounds(80, 90, 68, 20);
 
         jLabel5.setText("Password :");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(80, 130, 64, 16);
+        jLabel5.setBounds(80, 130, 56, 15);
         jPanel2.add(pfPasswordPelangganLogin);
-        pfPasswordPelangganLogin.setBounds(170, 130, 330, 22);
+        pfPasswordPelangganLogin.setBounds(170, 130, 330, 19);
         jPanel2.add(tfIDPelangganLogin);
-        tfIDPelangganLogin.setBounds(170, 90, 330, 22);
+        tfIDPelangganLogin.setBounds(170, 90, 330, 19);
 
         btnLoginPelanggan.setText("Login");
         jPanel2.add(btnLoginPelanggan);
@@ -76,7 +76,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         jPanel2.add(btnKembaliLogin);
         btnKembaliLogin.setBounds(20, 340, 92, 36);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan2.jpg")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan2.jpg"))); // NOI18N
         jPanel2.add(jLabel6);
         jLabel6.setBounds(0, 0, 610, 410);
 
@@ -105,7 +105,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(pfPasswordPelangganRegister);
-        pfPasswordPelangganRegister.setBounds(190, 130, 330, 22);
+        pfPasswordPelangganRegister.setBounds(190, 130, 330, 19);
 
         tfNamaPelangganRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,11 +113,11 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
             }
         });
         jPanel1.add(tfNamaPelangganRegister);
-        tfNamaPelangganRegister.setBounds(190, 90, 330, 22);
+        tfNamaPelangganRegister.setBounds(190, 90, 330, 19);
 
         tfIDPelangganRegister.setEditable(false);
         jPanel1.add(tfIDPelangganRegister);
-        tfIDPelangganRegister.setBounds(190, 50, 330, 22);
+        tfIDPelangganRegister.setBounds(190, 50, 330, 19);
 
         taPelanggan.setColumns(20);
         taPelanggan.setRows(5);
@@ -134,7 +134,7 @@ public class GUI_Pelanggan_Login extends javax.swing.JFrame {
         jPanel1.add(btnKembali);
         btnKembali.setBounds(12, 350, 86, 42);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel1.add(jLabel7);
         jLabel7.setBounds(-210, -140, 840, 690);
 

@@ -53,7 +53,7 @@ public class GUI_Aplikasi extends javax.swing.JFrame {
         jScrollPane1.setViewportView(taAplikasi);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(155, 28, 366, 78);
+        jScrollPane1.setBounds(155, 28, 363, 78);
 
         btnPelanggan.setFont(new java.awt.Font("Comic Sans MS", 2, 20)); // NOI18N
         btnPelanggan.setText("Pelanggan");
@@ -65,7 +65,7 @@ public class GUI_Aplikasi extends javax.swing.JFrame {
         jPanel1.add(btnDriver);
         btnDriver.setBounds(270, 589, 132, 56);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\Ikuzo.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ikuzo.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setMaximumSize(new java.awt.Dimension(120, 120));
         jLabel1.setMinimumSize(new java.awt.Dimension(120, 120));
@@ -83,7 +83,7 @@ public class GUI_Aplikasi extends javax.swing.JFrame {
         jPanel1.add(btnRestoran);
         btnRestoran.setBounds(435, 589, 132, 56);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(-30, -70, 830, 830);
 

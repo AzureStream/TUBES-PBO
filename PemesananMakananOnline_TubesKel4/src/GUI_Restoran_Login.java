@@ -69,15 +69,15 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(70, 116, 72, 16);
         jPanel1.add(pfPasswordRestoLogin);
-        pfPasswordRestoLogin.setBounds(213, 113, 298, 22);
+        pfPasswordRestoLogin.setBounds(213, 113, 298, 19);
         jPanel1.add(tfIDRestoLogin);
-        tfIDRestoLogin.setBounds(213, 51, 298, 22);
+        tfIDRestoLogin.setBounds(213, 51, 298, 19);
 
         btnRestoLogin.setText("Login");
         jPanel1.add(btnRestoLogin);
         btnRestoLogin.setBounds(393, 176, 118, 38);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel1.add(jLabel7);
         jLabel7.setBounds(-200, -130, 900, 690);
 
@@ -103,9 +103,9 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
             }
         });
         Resto_Register.add(tfIDRestoranRegister);
-        tfIDRestoranRegister.setBounds(180, 34, 341, 22);
+        tfIDRestoranRegister.setBounds(180, 34, 341, 19);
         Resto_Register.add(tfNamaRestoran);
-        tfNamaRestoran.setBounds(180, 70, 342, 22);
+        tfNamaRestoran.setBounds(180, 70, 342, 19);
 
         btnDaftarResto.setText("Daftar");
         btnDaftarResto.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +121,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         Resto_Register.add(jLabel3);
         jLabel3.setBounds(53, 32, 87, 26);
         Resto_Register.add(pfPasswordRestoRegister);
-        pfPasswordRestoRegister.setBounds(180, 110, 342, 22);
+        pfPasswordRestoRegister.setBounds(180, 110, 342, 19);
 
         taResto.setEditable(false);
         taResto.setColumns(20);
@@ -140,7 +140,7 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         Resto_Register.add(btnHome);
         btnHome.setBounds(13, 365, 113, 34);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan2.jpg")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan2.jpg"))); // NOI18N
         Resto_Register.add(jLabel6);
         jLabel6.setBounds(0, -30, 670, 460);
 

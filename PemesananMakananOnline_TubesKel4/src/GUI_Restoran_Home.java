@@ -60,7 +60,7 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(20, 470, 109, 22);
         jPanel1.add(tfNamaMenu);
-        tfNamaMenu.setBounds(190, 470, 380, 22);
+        tfNamaMenu.setBounds(190, 470, 380, 19);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +68,7 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(20, 500, 111, 22);
         jPanel1.add(tfHargaMenu);
-        tfHargaMenu.setBounds(220, 500, 352, 22);
+        tfHargaMenu.setBounds(220, 500, 352, 19);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,15 +83,15 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCreateMenu);
-        btnCreateMenu.setBounds(20, 530, 71, 25);
+        btnCreateMenu.setBounds(20, 530, 66, 25);
 
         btnUpdateMenu.setText("Update");
         jPanel1.add(btnUpdateMenu);
-        btnUpdateMenu.setBounds(100, 530, 73, 25);
+        btnUpdateMenu.setBounds(100, 530, 68, 25);
 
         btnDeleteMenu.setText("Delete");
         jPanel1.add(btnDeleteMenu);
-        btnDeleteMenu.setBounds(180, 530, 69, 25);
+        btnDeleteMenu.setBounds(180, 530, 64, 25);
 
         jScrollPane1.setViewportView(listNamaMenu);
 
@@ -100,13 +100,13 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
 
         btnHome.setText("Logout");
         jPanel1.add(btnHome);
-        btnHome.setBounds(690, 530, 71, 25);
+        btnHome.setBounds(690, 530, 67, 25);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\Ikuzo.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ikuzo.png"))); // NOI18N
         jPanel1.add(jLabel5);
         jLabel5.setBounds(128, 2, 491, 441);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan.jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan.jpg"))); // NOI18N
         jPanel1.add(jLabel4);
         jLabel4.setBounds(-80, -80, 1050, 830);
 
@@ -116,14 +116,14 @@ public class GUI_Restoran_Home extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

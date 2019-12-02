@@ -84,7 +84,7 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
         tfIdPesanan.setEditable(false);
         jPanel4.add(tfIdPesanan);
-        tfIdPesanan.setBounds(199, 15, 194, 22);
+        tfIdPesanan.setBounds(199, 15, 194, 19);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Keranjang");
@@ -133,13 +133,13 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
         tfTotalHarga.setEditable(false);
         jPanel4.add(tfTotalHarga);
-        tfTotalHarga.setBounds(192, 90, 201, 22);
+        tfTotalHarga.setBounds(192, 90, 201, 19);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel4.add(jLabel18);
         jLabel18.setBounds(-20, 380, 910, 340);
 
-        jLabel17.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan3.jpg"))); // NOI18N
         jPanel4.add(jLabel17);
         jLabel17.setBounds(-50, -10, 960, 530);
 
@@ -150,23 +150,23 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
 
         jLabel1.setText("Edit Profil");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(14, 15, 54, 16);
+        jLabel1.setBounds(14, 15, 44, 15);
 
         jLabel2.setText("Nama baru");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(14, 52, 63, 16);
+        jLabel2.setBounds(14, 52, 52, 15);
 
         jLabel3.setText("Plat nomor baru");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(14, 92, 92, 16);
+        jLabel3.setBounds(14, 92, 75, 15);
         jPanel1.add(tfNamaBaru);
-        tfNamaBaru.setBounds(142, 49, 615, 22);
+        tfNamaBaru.setBounds(142, 49, 615, 19);
         jPanel1.add(tfPlatBaru);
-        tfPlatBaru.setBounds(142, 89, 615, 22);
+        tfPlatBaru.setBounds(142, 89, 615, 19);
 
         btnSimpan.setText("Simpan");
         jPanel1.add(btnSimpan);
-        btnSimpan.setBounds(682, 139, 75, 25);
+        btnSimpan.setBounds(682, 139, 69, 25);
 
         taEditProfil.setEditable(false);
         taEditProfil.setColumns(20);
@@ -174,9 +174,9 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         jScrollPane1.setViewportView(taEditProfil);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 410, 743, 245);
+        jScrollPane1.setBounds(10, 200, 743, 245);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan.jpg")); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan.jpg"))); // NOI18N
         jPanel1.add(jLabel14);
         jLabel14.setBounds(-60, -10, 880, 750);
 
@@ -210,11 +210,11 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         jPanel3.add(jScrollPane3);
         jScrollPane3.setBounds(190, 50, 540, 360);
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan4.jpg")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan4.jpg"))); // NOI18N
         jPanel3.add(jLabel15);
         jLabel15.setBounds(-10, -100, 900, 540);
 
-        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan4.jpg")); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan4.jpg"))); // NOI18N
         jPanel3.add(jLabel16);
         jLabel16.setBounds(-70, 340, 900, 465);
 
@@ -249,15 +249,15 @@ public class GUI_Pengemudi_Home extends javax.swing.JFrame {
         jPanel5.add(btnLogout);
         btnLogout.setBounds(311, 515, 130, 60);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\Ikuzo.png")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Ikuzo.png"))); // NOI18N
         jPanel5.add(jLabel11);
         jLabel11.setBounds(133, 8, 500, 500);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan4.jpg")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan4.jpg"))); // NOI18N
         jPanel5.add(jLabel12);
         jLabel12.setBounds(-30, 320, 930, 380);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan4.jpg")); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan4.jpg"))); // NOI18N
         jPanel5.add(jLabel13);
         jLabel13.setBounds(-120, -10, 1070, 420);
 

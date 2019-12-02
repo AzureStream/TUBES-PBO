@@ -88,9 +88,9 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
             }
         });
         jPanel3.add(pfPasswordPengemudiLogin);
-        pfPasswordPengemudiLogin.setBounds(202, 118, 330, 22);
+        pfPasswordPengemudiLogin.setBounds(202, 118, 330, 19);
         jPanel3.add(tfIDPengemudiLogin);
-        tfIDPengemudiLogin.setBounds(202, 58, 330, 22);
+        tfIDPengemudiLogin.setBounds(202, 58, 330, 19);
 
         btnLoginPengemudi.setText("Login");
         btnLoginPengemudi.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
         jPanel3.add(btnKembaliLogin);
         btnKembaliLogin.setBounds(12, 365, 90, 37);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan4.jpg")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan4.jpg"))); // NOI18N
         jPanel3.add(jLabel7);
         jLabel7.setBounds(-270, -160, 910, 780);
 
@@ -130,9 +130,9 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
 
         tfIDPengemudiRegister.setEditable(false);
         jPanel1.add(tfIDPengemudiRegister);
-        tfIDPengemudiRegister.setBounds(200, 41, 361, 22);
+        tfIDPengemudiRegister.setBounds(200, 41, 361, 19);
         jPanel1.add(tfNamaPengemudiRegister);
-        tfNamaPengemudiRegister.setBounds(200, 87, 361, 22);
+        tfNamaPengemudiRegister.setBounds(200, 87, 361, 19);
 
         btnDaftarPengemudi.setText("Daftar");
         btnDaftarPengemudi.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(181, 258, 380, 157);
         jPanel1.add(pfPasswordPengemudiRegister);
-        pfPasswordPengemudiRegister.setBounds(200, 134, 361, 22);
+        pfPasswordPengemudiRegister.setBounds(200, 134, 361, 19);
 
         btnKembali.setText("Kembali");
         jPanel1.add(btnKembali);
@@ -161,9 +161,9 @@ public class GUI_Pengemudi_Login extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(58, 137, 72, 16);
         jPanel1.add(tfPlat);
-        tfPlat.setBounds(200, 174, 361, 22);
+        tfPlat.setBounds(200, 174, 361, 19);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan.jpg")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PesanMakan.jpg"))); // NOI18N
         jPanel1.add(jLabel8);
         jLabel8.setBounds(-300, -130, 1230, 630);
 
