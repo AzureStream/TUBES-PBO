@@ -33,6 +33,13 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        pfPasswordRestoLogin = new javax.swing.JPasswordField();
+        tfIDRestoLogin = new javax.swing.JTextField();
+        btnRestoLogin = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         Resto_Register = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -44,22 +51,50 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         taResto = new javax.swing.JTextArea();
         btnHome = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        pfPasswordRestoLogin = new javax.swing.JPasswordField();
-        tfIDRestoLogin = new javax.swing.JTextField();
-        btnRestoLogin = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jPanel1.setLayout(null);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel4.setText("ID Restoran :");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(70, 54, 87, 16);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel5.setText("Password :");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(70, 116, 72, 16);
+        jPanel1.add(pfPasswordRestoLogin);
+        pfPasswordRestoLogin.setBounds(213, 113, 298, 22);
+        jPanel1.add(tfIDRestoLogin);
+        tfIDRestoLogin.setBounds(213, 51, 298, 22);
+
+        btnRestoLogin.setText("Login");
+        jPanel1.add(btnRestoLogin);
+        btnRestoLogin.setBounds(393, 176, 118, 38);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan3.jpg")); // NOI18N
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(-200, -130, 900, 690);
+
+        jTabbedPane1.addTab("Login", jPanel1);
+
         Resto_Register.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Resto_Register.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel1.setText("Nama Restoran :");
+        Resto_Register.add(jLabel1);
+        jLabel1.setBounds(50, 80, 108, 16);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Password :");
+        Resto_Register.add(jLabel2);
+        jLabel2.setBounds(50, 110, 77, 25);
 
         tfIDRestoranRegister.setEditable(false);
         tfIDRestoranRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +102,10 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
                 tfIDRestoranRegisterActionPerformed(evt);
             }
         });
+        Resto_Register.add(tfIDRestoranRegister);
+        tfIDRestoranRegister.setBounds(180, 34, 341, 22);
+        Resto_Register.add(tfNamaRestoran);
+        tfNamaRestoran.setBounds(180, 70, 342, 22);
 
         btnDaftarResto.setText("Daftar");
         btnDaftarResto.addActionListener(new java.awt.event.ActionListener() {
@@ -74,13 +113,23 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
                 btnDaftarRestoActionPerformed(evt);
             }
         });
+        Resto_Register.add(btnDaftarResto);
+        btnDaftarResto.setBounds(410, 150, 113, 34);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setText("ID Restoran :");
+        Resto_Register.add(jLabel3);
+        jLabel3.setBounds(53, 32, 87, 26);
+        Resto_Register.add(pfPasswordRestoRegister);
+        pfPasswordRestoRegister.setBounds(180, 110, 342, 22);
 
         taResto.setEditable(false);
         taResto.setColumns(20);
         taResto.setRows(5);
         jScrollPane1.setViewportView(taResto);
+
+        Resto_Register.add(jScrollPane1);
+        jScrollPane1.setBounds(137, 194, 384, 152);
 
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
@@ -88,121 +137,29 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
                 btnHomeActionPerformed(evt);
             }
         });
+        Resto_Register.add(btnHome);
+        btnHome.setBounds(13, 365, 113, 34);
 
-        javax.swing.GroupLayout Resto_RegisterLayout = new javax.swing.GroupLayout(Resto_Register);
-        Resto_Register.setLayout(Resto_RegisterLayout);
-        Resto_RegisterLayout.setHorizontalGroup(
-            Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Resto_RegisterLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Resto_RegisterLayout.createSequentialGroup()
-                        .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfNamaRestoran)
-                            .addComponent(pfPasswordRestoRegister)))
-                    .addGroup(Resto_RegisterLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfIDRestoranRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(161, 161, 161))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Resto_RegisterLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDaftarResto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
-            .addGroup(Resto_RegisterLayout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Resto_RegisterLayout.setVerticalGroup(
-            Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Resto_RegisterLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfIDRestoranRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNamaRestoran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pfPasswordRestoRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(Resto_RegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDaftarResto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan2.jpg")); // NOI18N
+        Resto_Register.add(jLabel6);
+        jLabel6.setBounds(0, -30, 670, 460);
 
         jTabbedPane1.addTab("Register", Resto_Register);
-
-        jLabel4.setText("ID Restoran");
-
-        jLabel5.setText("Password");
-
-        btnRestoLogin.setText("Login");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
-                .addGap(95, 95, 95)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pfPasswordRestoLogin)
-                    .addComponent(tfIDRestoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
-                .addContainerGap(239, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRestoLogin)
-                .addGap(146, 146, 146))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfIDRestoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(pfPasswordRestoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
-                .addComponent(btnRestoLogin)
-                .addContainerGap(268, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Login", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addGap(39, 39, 39))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -285,6 +242,8 @@ public class GUI_Restoran_Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;

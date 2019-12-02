@@ -37,74 +37,65 @@ public class GUI_Aplikasi extends javax.swing.JFrame {
         taAplikasi = new javax.swing.JTextArea();
         btnPelanggan = new javax.swing.JButton();
         btnDriver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         btnRestoran = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(null);
 
-        taAplikasi.setEditable(false);
         taAplikasi.setColumns(20);
+        taAplikasi.setFont(new java.awt.Font("Segoe Script", 1, 18)); // NOI18N
         taAplikasi.setRows(2);
-        taAplikasi.setText("Selamat detang di app\nSilahkan pilih menu log in");
+        taAplikasi.setText("       Selamat Datang di IKUZO!\n      Silahkan Pilih Menu Login.");
         jScrollPane1.setViewportView(taAplikasi);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(155, 28, 366, 78);
+
+        btnPelanggan.setFont(new java.awt.Font("Comic Sans MS", 2, 20)); // NOI18N
         btnPelanggan.setText("Pelanggan");
+        jPanel1.add(btnPelanggan);
+        btnPelanggan.setBounds(102, 589, 132, 56);
 
+        btnDriver.setFont(new java.awt.Font("Comic Sans MS", 2, 20)); // NOI18N
         btnDriver.setText("Driver");
+        jPanel1.add(btnDriver);
+        btnDriver.setBounds(270, 589, 132, 56);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\Ikuzo.png")); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setMaximumSize(new java.awt.Dimension(120, 120));
+        jLabel1.setMinimumSize(new java.awt.Dimension(120, 120));
+        jLabel1.setPreferredSize(new java.awt.Dimension(120, 120));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(80, 119, 500, 450);
+
+        btnRestoran.setFont(new java.awt.Font("Comic Sans MS", 2, 20)); // NOI18N
         btnRestoran.setText("Restoran");
         btnRestoran.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestoranActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRestoran);
+        btnRestoran.setBounds(435, 589, 132, 56);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnRestoran, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                    .addComponent(btnDriver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                .addContainerGap(141, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnDriver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRestoran, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rachmat Dwi Putra\\Downloads\\PesanMakan.jpg")); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(-30, -70, 830, 830);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE)
         );
 
         pack();
@@ -139,6 +130,8 @@ public class GUI_Aplikasi extends javax.swing.JFrame {
     private javax.swing.JButton btnDriver;
     private javax.swing.JButton btnPelanggan;
     private javax.swing.JButton btnRestoran;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea taAplikasi;
