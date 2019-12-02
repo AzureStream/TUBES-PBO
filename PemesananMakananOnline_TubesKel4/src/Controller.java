@@ -248,6 +248,7 @@ public class Controller extends MouseAdapter implements ActionListener {
             }
             restoLogin.resetView();
             restoLogin.setRestoIdRegister(Restoran.getSid());
+            pelangganHome.setListRestoran(model.getDaftarRestoran());
         }
         if (source.equals(restoLogin.getBtnLoginResto())) {
             Restoran r = null;
